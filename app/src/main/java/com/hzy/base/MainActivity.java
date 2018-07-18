@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hzy.dialog.LoadingDialog;
+import com.hzy.dialog.DownloadDialog;
 import com.hzy.utils.DownloadWorkerTask;
 import com.hzy.utils.DynamicCodeUtil;
-import com.hzy.utils.LogUtil;
 import com.hzy.utils.ResUtil;
 import com.hzy.utils.ToastUtil;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void download(View view) {
 
-        final LoadingDialog dialog = new LoadingDialog.Builder(this).cancelable(true).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
+        final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
         new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCallback() {
             @Override
             public void onPreExecute() {
@@ -36,12 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgress(Integer... values) {
-                LogUtil.e("tag......", values + "");
-
+                dialog.setProgress(values[0]);
             }
 
             @Override
-            public void onSuccess(String s) {
+            public void onSuccess(List<String> paths, String s) {
                 dialog.dismiss();
                 ToastUtil.showShort(MainActivity.this, "下载成功");
             }

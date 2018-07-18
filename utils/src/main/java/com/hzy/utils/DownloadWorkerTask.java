@@ -11,12 +11,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
+ * 下载工具类
  * Created by ziye_huang on 2018/7/17.
  */
 public final class DownloadWorkerTask extends AsyncTask<String, Integer, String> {
     private Context context;
+    private List<String> paths = new ArrayList<>();
+
     @Nullable
     private DownloadCallback callback;
 
@@ -118,7 +123,9 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
             // download the file
             in = connection.getInputStream();
             //URLUtil.guessFileName(strUrl, "", "")根据url获取要下面文件的文件名
-            out = new FileOutputStream(context.getExternalCacheDir().getAbsolutePath() + File.separator + URLUtil.guessFileName(strUrl, "", connection.getContentType()));
+            String filePath = context.getExternalCacheDir().getAbsolutePath() + File.separator + URLUtil.guessFileName(strUrl, "", connection.getContentType());
+            out = new FileOutputStream(filePath);
+            paths.add(filePath);
 
             byte[] data = new byte[1024 * 4];
             long total = 0;
@@ -169,7 +176,7 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         if (null != callback) {
-            callback.onSuccess(s);
+            callback.onSuccess(paths, s);
         }
     }
 
@@ -178,7 +185,11 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
 
         void onProgress(Integer... values);
 
-        void onSuccess(String s);
+        /**
+         * @param paths 下载文件的本地路径
+         * @param s
+         */
+        void onSuccess(List<String> paths, String s);
     }
 
 }

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_dialog">#232931</color>
+    <!--加载对话框背景颜色-->
+    <color name="color_dialog_bg">#232931</color>
+    <!--下载对话框圆环的颜色-->
+    <color name="color_circle_ring">#27253d</color>
+    <!--下载对话框圆环的背景颜色-->
+    <color name="color_circle_ring_bg">#eeeeee</color>
 </resources>

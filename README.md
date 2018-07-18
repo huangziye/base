@@ -25,3 +25,64 @@
 - Http相关工具类 HttpUtil
 - zip打包工具类 ZipUtil
 - 关闭Closeable对象工具类 CloseUtil
+- 文件下载 DownloadWorkerTask
+
+
+
+
+
+# 常用 Dialog
+
+- 加载对话框 （LoadingDialog）
+
+使用方式
+
+```java
+// 显示对话框
+LoadingDialog dialog = new LoadingDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("加载中...").create();
+dialog.show();
+
+// 取消对话框
+dialog.dismiss();
+```
+
+
+- 下载对话框 （DownloadDialog）
+
+使用方式
+
+```java
+// 显示对话框
+DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
+dialog.show();
+
+// 取消对话框
+dialog.dismiss();
+```
+
+- 下载对话框结合下载 (DownloadDialog 和 DownloadWorkerTask)
+
+```java
+final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
+new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCallback() {
+    @Override
+    public void onPreExecute() {
+        dialog.show();
+    }
+
+    @Override
+    public void onProgress(Integer... values) {
+        dialog.setProgress(values[0]);
+    }
+
+    @Override
+    public void onSuccess(List<String> paths, String s) {
+        dialog.dismiss();
+        ToastUtil.showShort(MainActivity.this, "下载成功");
+    }
+}).build().download("url1", "url2");
+```
+
+
+
+
