@@ -1,5 +1,5 @@
 
-# 添加 base 到项目
+# Add ` base ` to project
 
 - Step 1：Add the JitPack repository to your build file
 
@@ -23,9 +23,9 @@ dependencies {
 ```
 
 
-# 常用工具类
+# Common tools
 
-- 缓存工具类 ACache
+- 缓存工具类 ACacheC
 - 异常管理类 CrashHandler
 - 设备相关信息管理类 AppUtil
 - 字节数组与字符串相互转换工具类 ByteUtil
@@ -55,11 +55,11 @@ dependencies {
 
 
 
-# 常用 Dialog
+# Common Dialog
 
-- 加载对话框 （LoadingDialog）
+- Load dialog （LoadingDialog）
 
-使用方式
+usage mode
 
 ```java
 // 显示对话框
@@ -71,9 +71,9 @@ dialog.dismiss();
 ```
 
 
-- 下载对话框 （DownloadDialog）
+- Download dialog （DownloadDialog）
 
-使用方式
+usage mode
 
 ```java
 // 显示对话框
@@ -84,7 +84,7 @@ dialog.show();
 dialog.dismiss();
 ```
 
-- 下载对话框结合下载 (DownloadDialog 和 DownloadWorkerTask)
+- Download the dialog together with download (DownloadDialog 和 DownloadWorkerTask)
 
 ```java
 final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
