@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.hzy.dialog.LoadingDialog;
+import com.hzy.utils.ResUtil;
+import com.hzy.utils.VersionUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        TextView tv = (TextView) findViewById(R.id.textView);
-//        tv.setText(DynamicCodeUtil.generateCode(DynamicCodeUtil.TYPE_LETTER_ONLY, 4, ""));
-//        tv.setTextColor(ResUtil.getColor(this, R.color.colorAccent));
+        TextView tv = (TextView) findViewById(R.id.textView);
+        tv.setText(VersionUtil.compareVersion("1.22.232","1.22.34")+"");
+        tv.setTextColor(ResUtil.getColor(this, R.color.colorAccent));
     }
 
     public void download(View view) {

@@ -50,6 +50,7 @@ dependencies {
 - zip打包工具类 ZipUtil
 - 关闭Closeable对象工具类 CloseUtil
 - 文件下载 DownloadWorkerTask
+- 版本相关辅助工具类 VersionUtil
 
 
 
