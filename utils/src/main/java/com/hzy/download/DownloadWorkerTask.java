@@ -1,9 +1,11 @@
-package com.hzy.utils;
+package com.hzy.download;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.webkit.URLUtil;
+
+import com.hzy.utils.CloseUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;

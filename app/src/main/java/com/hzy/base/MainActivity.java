@@ -4,15 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
-import com.hzy.dialog.DownloadDialog;
-import com.hzy.utils.DownloadWorkerTask;
-import com.hzy.utils.DynamicCodeUtil;
-import com.hzy.utils.ResUtil;
-import com.hzy.utils.ToastUtil;
-
-import java.util.List;
+import com.hzy.dialog.LoadingDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,14 +14,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tv = (TextView) findViewById(R.id.textView);
-        tv.setText(DynamicCodeUtil.generateCode(DynamicCodeUtil.TYPE_LETTER_ONLY, 4, ""));
-        tv.setTextColor(ResUtil.getColor(this, R.color.colorAccent));
+//        TextView tv = (TextView) findViewById(R.id.textView);
+//        tv.setText(DynamicCodeUtil.generateCode(DynamicCodeUtil.TYPE_LETTER_ONLY, 4, ""));
+//        tv.setTextColor(ResUtil.getColor(this, R.color.colorAccent));
     }
 
     public void download(View view) {
 
-        final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
+        LoadingDialog dialog = new LoadingDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("加载中...").create();
+        dialog.show();
+        /*final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
         new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCallback() {
             @Override
             public void onPreExecute() {
@@ -45,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
                 ToastUtil.showShort(MainActivity.this, "下载成功");
             }
-        }).build().download("http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetupwin2000.rar", "http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetup.rar");
+        }).build().download("http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetupwin2000.rar", "http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetup.rar");*/
 
     }
 

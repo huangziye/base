@@ -59,6 +59,10 @@ dependencies {
 
 - Load dialog （LoadingDialog）
 
+**effect picture：**
+
+![加载效果图](https://github.com/huangziye/base/screenshot/loading.gif)
+
 usage mode
 
 ```java
@@ -86,6 +90,12 @@ dialog.dismiss();
 
 - Download the dialog together with download (DownloadDialog 和 DownloadWorkerTask)
 
+**effect picture：**
+
+![下载效果图](https://github.com/huangziye/base/screenshot/download.gif)
+
+usage mode
+
 ```java
 final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
 new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCallback() {
@@ -110,6 +120,7 @@ new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCal
 # About Me
 
 Email: ziye_huang@163.com
+
 简书: https://www.jianshu.com/u/5f3130bdf4fc
 
 
