@@ -1,6 +1,5 @@
 package com.hzy.utils;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
@@ -18,7 +17,6 @@ import java.net.URL;
  */
 public final class DownloadWorkerTask extends AsyncTask<String, Integer, String> {
     private Context context;
-    private ProgressDialog progressDialog;
     @Nullable
     private DownloadCallback callback;
 
@@ -26,12 +24,11 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
         private Context context;
         private DownloadCallback callback;
 
-        public Builder create(Context context) {
+        public Builder(Context context) {
             this.context = context;
-            return this;
         }
 
-        public Builder addCallback(DownloadCallback callback) {
+        public Builder callback(DownloadCallback callback) {
             this.callback = callback;
             return this;
         }
@@ -55,7 +52,9 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        callback.onPreExecute();
+        if (null != callback) {
+            callback.onPreExecute();
+        }
 
     }
 
@@ -121,7 +120,7 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
             //URLUtil.guessFileName(strUrl, "", "")根据url获取要下面文件的文件名
             out = new FileOutputStream(context.getExternalCacheDir().getAbsolutePath() + File.separator + URLUtil.guessFileName(strUrl, "", connection.getContentType()));
 
-            byte[] data = new byte[1024];
+            byte[] data = new byte[1024 * 4];
             long total = 0;
             int count;
             while ((count = in.read(data)) != -1) {
@@ -156,7 +155,9 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
     @Override
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
-        callback.onProgress(values);
+        if (null != callback) {
+            callback.onProgress(values);
+        }
     }
 
     /**
@@ -167,7 +168,9 @@ public final class DownloadWorkerTask extends AsyncTask<String, Integer, String>
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        callback.onSuccess(s);
+        if (null != callback) {
+            callback.onSuccess(s);
+        }
     }
 
     public interface DownloadCallback {
