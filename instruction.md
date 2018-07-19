@@ -37,7 +37,7 @@
 
 **effect picture：**
 
-![加载效果图](https://github.com/huangziye/base/tree/master/screenshot/loading.gif)
+![加载效果图](https://github.com/huangziye/base/blob/master/screenshot/loading.gif)
 
 usage mode
 
@@ -68,7 +68,7 @@ dialog.dismiss();
 
 **effect picture：**
 
-![下载效果图](https://github.com/huangziye/base/tree/master/screenshot/download.gif)
+![下载效果图](https://github.com/huangziye/base/blob/master/screenshot/download.gif)
 
 usage mode
 

@@ -24,10 +24,10 @@ dependencies {
 
 # Function introduction
 
-[功能介绍](https://github.com/huangziye/base/INSTRUCTION.md)
+[功能介绍](https://github.com/huangziye/base/blob/master/instruction.md)
 
 
-# About Me
+# About me
 
 Email: ziye_huang@163.com
 
