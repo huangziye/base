@@ -92,3 +92,16 @@ new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCal
     }
 }).build().download("url1", "url2");
 ```
+
+
+- Bottom Dialog (BottomDialog)
+
+usage mode
+
+- 继承自BottomDialog
+- 重写 `createView` 方法
+- 显示对话框 `new XXXDialog().show(getSupportFragmentManager(),"dialog");`
+
+
+
+

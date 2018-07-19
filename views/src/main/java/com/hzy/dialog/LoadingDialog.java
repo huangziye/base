@@ -39,7 +39,7 @@ public final class LoadingDialog extends Dialog {
         private boolean isShowMessage = true;
         private boolean isCancelable = false;
         private boolean isCancelOutside = false;
-        private int bgDrawable = -1;
+        private int bgColor = -1;
         private int textColor = -1;
         private int textSize = -1;
 
@@ -97,11 +97,11 @@ public final class LoadingDialog extends Dialog {
         /**
          * 设置对话框背景
          *
-         * @param bgDrawable
+         * @param bgColor
          * @return
          */
-        public Builder bgDrawable(@DrawableRes int bgDrawable) {
-            this.bgDrawable = bgDrawable;
+        public Builder bgColor(@DrawableRes int bgColor) {
+            this.bgColor = bgColor;
             return this;
         }
 
@@ -132,7 +132,7 @@ public final class LoadingDialog extends Dialog {
             LoadingDialog loadingDailog = new LoadingDialog(context, R.style.LoadingDialogStyle);
             LinearLayout llLoadingDialog = view.findViewById(R.id.ll_loading_dialog);
             TextView msgText = (TextView) view.findViewById(R.id.tipTextView);
-            llLoadingDialog.setBackgroundDrawable(ResUtil.getDrawable(context, -1 == bgDrawable ? R.drawable.bg_loading_dialog : bgDrawable));
+            llLoadingDialog.setBackgroundDrawable(ResUtil.getDrawable(context, -1 == bgColor ? R.drawable.bg_loading_dialog : bgColor));
             if (isShowMessage) {
                 if (-1 != textSize) {
                     msgText.setTextSize(textSize);

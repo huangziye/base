@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hzy.dialog.LoadingDialog;
 import com.hzy.utils.ResUtil;
 import com.hzy.utils.VersionUtil;
 
@@ -24,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void download(View view) {
 
-        LoadingDialog dialog = new LoadingDialog.Builder(this).isShowMessage(true).setMessage("加载中...").cancelable(true).cancelOutside(true).create();
-        dialog.show();
+        //加载对话框
+        /*LoadingDialog dialog = new LoadingDialog.Builder(this).isShowMessage(true).setMessage("加载中...").cancelable(true).cancelOutside(true).create();
+        dialog.show();*/
+
+        //下载对话框
         /*final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
         new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCallback() {
             @Override
@@ -45,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }).build().download("http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetupwin2000.rar", "http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetup.rar");*/
 
-        /*BDialog dialog = new BDialog();
-        dialog.show(getSupportFragmentManager(),"dialog");*/
+        //底部弹框
+        BDialog dialog = new BDialog();
+        dialog.show(getSupportFragmentManager().beginTransaction(),"dialog");
 
         //        startActivity(new Intent(this,OtherActivity.class));
     }
