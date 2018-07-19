@@ -2,13 +2,18 @@ package com.hzy.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.support.annotation.DimenRes;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hzy.R;
+import com.hzy.utils.ResUtil;
 
 /**
  * Created by ziye_huang on 2018/7/18.
@@ -34,6 +39,9 @@ public final class LoadingDialog extends Dialog {
         private boolean isShowMessage = true;
         private boolean isCancelable = false;
         private boolean isCancelOutside = false;
+        private int bgDrawable = -1;
+        private int textColor = -1;
+        private int textSize = -1;
 
 
         public Builder(Context context) {
@@ -86,11 +94,52 @@ public final class LoadingDialog extends Dialog {
             return this;
         }
 
+        /**
+         * 设置对话框背景
+         *
+         * @param bgDrawable
+         * @return
+         */
+        public Builder bgDrawable(@DrawableRes int bgDrawable) {
+            this.bgDrawable = bgDrawable;
+            return this;
+        }
+
+        /**
+         * 设置字体大小
+         *
+         * @param textSize
+         * @return
+         */
+        public Builder textSize(@DimenRes int textSize) {
+            this.textSize = textSize;
+            return this;
+        }
+
+        /**
+         * 设置字体颜色
+         *
+         * @param textColor
+         * @return
+         */
+        public Builder textColor(@IntegerRes int textColor) {
+            this.textColor = textColor;
+            return this;
+        }
+
         public LoadingDialog create() {
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null);
             LoadingDialog loadingDailog = new LoadingDialog(context, R.style.LoadingDialogStyle);
+            LinearLayout llLoadingDialog = view.findViewById(R.id.ll_loading_dialog);
             TextView msgText = (TextView) view.findViewById(R.id.tipTextView);
+            llLoadingDialog.setBackgroundDrawable(ResUtil.getDrawable(context, -1 == bgDrawable ? R.drawable.bg_loading_dialog : bgDrawable));
             if (isShowMessage) {
+                if (-1 != textSize) {
+                    msgText.setTextSize(textSize);
+                }
+                if (-1 != textColor) {
+                    msgText.setTextColor(textColor);
+                }
                 msgText.setText(message);
             } else {
                 msgText.setVisibility(View.GONE);

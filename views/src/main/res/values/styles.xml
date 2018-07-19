@@ -21,4 +21,22 @@
         <attr name="ringColor" format="color"/>
         <attr name="ringBgColor" format="color"/>
     </declare-styleable>
+
+    <!--底部对话框动画-->
+    <style name="BottomDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/bottom_out</item>
+    </style>
+
+    <!--Activity进出平移动画，应用在Mainfest的Application节点下-->
+    <style name="ActivityInAndOutAnimation" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowAnimationStyle">@style/activity_translate</item>
+    </style>
+
+    <style name="activity_translate" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/left_out</item>
+        <item name="android:activityCloseExitAnimation">@anim/right_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/left_in</item>
+    </style>
 </resources>

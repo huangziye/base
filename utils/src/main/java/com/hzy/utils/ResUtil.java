@@ -1,7 +1,10 @@
 package com.hzy.utils;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 
 /**
@@ -32,6 +35,28 @@ public final class ResUtil {
      */
     public static String getString(Context context, @StringRes int strId) {
         return context.getResources().getString(strId);
+    }
+
+    /**
+     * 根据资源ID获取Drawable
+     *
+     * @param context
+     * @param drawable
+     * @return
+     */
+    public static Drawable getDrawable(Context context, @DrawableRes int drawable) {
+        return context.getResources().getDrawable(drawable);
+    }
+
+    /**
+     * 根据资源ID获取dimen
+     *
+     * @param context
+     * @param dimen
+     * @return
+     */
+    public static int getDimen(Context context, @DimenRes int dimen) {
+        return context.getResources().getDimensionPixelSize(dimen);
     }
 
 }
