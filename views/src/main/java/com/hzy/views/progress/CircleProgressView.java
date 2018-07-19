@@ -1,4 +1,4 @@
-package com.hzy.views;
+package com.hzy.views.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;

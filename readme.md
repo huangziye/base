@@ -24,7 +24,7 @@ dependencies {
 
 # Function introduction
 
-[功能介绍](https://github.com/huangziye/base/blob/master/instruction.md)
+[Function Introduction](https://github.com/huangziye/base/blob/master/instruction.md)
 
 
 # About me

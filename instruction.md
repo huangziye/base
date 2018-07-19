@@ -53,7 +53,7 @@ dialog.dismiss();
 
 - Download dialog （DownloadDialog）
 
-usage mode
+usage
 
 ```java
 // 显示对话框
@@ -70,7 +70,7 @@ dialog.dismiss();
 
 ![下载效果图](https://github.com/huangziye/base/blob/master/screenshot/download.gif)
 
-usage mode
+usage
 
 ```java
 final DownloadDialog dialog = new DownloadDialog.Builder(this).cancelable(false).cancelOutside(false).isShowMessage(true).setMessage("下载中...").create();
@@ -96,11 +96,59 @@ new DownloadWorkerTask.Builder(this).callback(new DownloadWorkerTask.DownloadCal
 
 - Bottom Dialog (BottomDialog)
 
-usage mode
+usage
 
-- 继承自BottomDialog
-- 重写 `createView` 方法
-- 显示对话框 `new XXXDialog().show(getSupportFragmentManager(),"dialog");`
+- Inherited from `BottomDialog`
+- Override `createView` method
+- Show dialog `new XXXDialog().show(getSupportFragmentManager(),"dialog");`
+
+
+
+
+- Common dialog
+
+usage
+
+It is a abstract base class. Custom dialogs are inherited from CommonDialog  and override method.
+
+- Inherited from `CommonDialog`
+- Override method
+- Show dialog `new XXXDialog().show(getSupportFragmentManager(),"dialog");`
+
+
+
+# Wave view （WaveView）
+
+**effect picture：**
+
+![下载效果图](https://github.com/huangziye/base/blob/master/screenshot/wave.gif)
+
+usage
+
+- xml
+
+```xml
+<com.hzy.views.waveview.WaveView
+    android:id="@+id/wave"
+    android:layout_width="200dp"
+    android:layout_height="200dp"/>
+```
+
+- start
+
+```java
+mWaveView.setBorder(mBorderWidth, mBorderColor);
+mWaveView.setShapeType(WaveView.ShapeType.CIRCLE);
+WaveHelper mWaveHelper = new WaveHelper(mWaveView);
+mWaveHelper.start();
+```
+
+- cancel
+
+```java
+mWaveHelper.cancel();
+```
+
 
 
 

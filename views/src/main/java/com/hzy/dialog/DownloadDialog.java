@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.hzy.R;
-import com.hzy.views.CircleProgressView;
+import com.hzy.views.progress.CircleProgressView;
 
 /**
  * Created by ziye_huang on 2018/7/18.

@@ -1,5 +1,6 @@
 package com.hzy.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -48,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         }).build().download("http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetupwin2000.rar", "http://www.zjca.com.cn/web/webs/downloads/drivers/ZCUsbKeySetup.rar");*/
 
         //底部弹框
-        BDialog dialog = new BDialog();
-        dialog.show(getSupportFragmentManager().beginTransaction(),"dialog");
+        /*BDialog dialog = new BDialog();
+        dialog.show(getSupportFragmentManager().beginTransaction(),"dialog");*/
 
-        //        startActivity(new Intent(this,OtherActivity.class));
+        startActivity(new Intent(this, OtherActivity.class));
     }
 
     @Override
