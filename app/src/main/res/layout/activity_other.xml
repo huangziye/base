@@ -4,8 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.hzy.views.waveview.WaveView
+    <!--<com.hzy.views.waveview.WaveView
         android:id="@+id/wave"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"/>-->
+
+    <com.hzy.views.waveview.DynamicWaveView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerInParent="true"/>

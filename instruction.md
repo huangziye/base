@@ -150,6 +150,11 @@ mWaveHelper.cancel();
 ```
 
 
+# DynamicWave view （DynamicWaveView）
+dynamic
+**effect picture：**
+
+![下载效果图](https://github.com/huangziye/base/blob/master/screenshot/wave.gif)
 
 
 
