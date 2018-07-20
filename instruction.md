@@ -26,6 +26,7 @@
 - 关闭Closeable对象工具类 CloseUtil
 - 文件下载 DownloadWorkerTask
 - 版本相关辅助工具类 VersionUtil
+- 顺时针、水平方向的半圆周运动 SemicircleAnimation
 
 
 
@@ -155,6 +156,33 @@ dynamic
 **effect picture：**
 
 ![下载效果图](https://github.com/huangziye/base/blob/master/screenshot/wave.gif)
+
+
+
+# SemicircleAnimation
+
+```java
+// 5 相对于自己在x轴上移动的距离（相对于自身宽度）
+SemicircleAnimation anim = new SemicircleAnimation(0,5);
+anim.setStartOffset(300);
+anim.setInterpolator(new LinearInterpolator());
+anim.setFillAfter(true);
+anim.setDuration(500);
+imageView.startAnimation(anim);
+
+
+
+android:duration：设置动画持续时间
+android:fillAfter：如果fillAfter设为true，则动画执行后，控件将停留在动画结束的状态
+android:fillBefore：如果fillBefore设为true，则动画执行后，控件将回到动画开始的状态
+android:startOffset(long startOffset)：设置动画执行之前等待的时间（单位：毫秒）
+android:repeatCount(int repeatCount)：设置动画重复的次数
+android:interpolator：设置动画的变化速度
+```
+
+
+
+
 
 
 

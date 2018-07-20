@@ -39,4 +39,5 @@
         <item name="android:activityCloseExitAnimation">@anim/right_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/left_in</item>
     </style>
+
 </resources>
