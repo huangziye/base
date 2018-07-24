@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="white">#ffffff</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#000000</color>
     <!--加载对话框背景颜色-->
     <color name="color_dialog_bg">#232931</color>
     <!--下载对话框圆环的颜色-->

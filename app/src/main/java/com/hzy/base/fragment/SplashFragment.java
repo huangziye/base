@@ -1,0 +1,45 @@
+package com.hzy.base.fragment;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+
+import com.hzy.base.R;
+
+/**
+ * 启动页（以fragment的方式）
+ * Created by ziye_huang on 2018/7/23.
+ */
+public class SplashFragment extends Fragment {
+
+    public SplashFragment() {
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_splash, container, false);
+        initData();
+        return view;
+    }
+
+    /**
+     * 初始化数据
+     */
+    private void initData() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                getActivity().getSupportFragmentManager().beginTransaction().remove(SplashFragment.this).commit();
+
+            }
+        }, 3000);
+
+    }
+
+}

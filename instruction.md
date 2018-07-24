@@ -181,6 +181,83 @@ android:interpolator：设置动画的变化速度
 ```
 
 
+# 底部导航布局 （TabbarLayout 和 TabbarItemLayout）
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/content"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.hzy.layout.TabbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.hzy.layout.TabbarItemLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="25dp"
+            app:iconNormal="@mipmap/icon_wechat_normal"
+            app:iconSelected="@mipmap/icon_wechat_checked"
+            app:iconWidth="25dp"
+            app:itemMarginTop="2dp"
+            app:itemText="微信"
+            app:itemTextSize="10dp"
+            app:openTouchBg="false"
+            app:textColorNormal="@color/tabNormalColor"
+            app:textColorSelected="@color/tabSelectedColor"
+            app:touchDrawable="@drawable/tabbar_selector_bg"/>
+
+        <com.hzy.layout.TabbarItemLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="25dp"
+            app:iconNormal="@mipmap/icon_contact_normal"
+            app:iconSelected="@mipmap/icon_contact_checked"
+            app:iconWidth="25dp"
+            app:itemMarginTop="2dp"
+            app:itemText="通讯录"
+            app:itemTextSize="10dp"
+            app:openTouchBg="false"
+            app:textColorNormal="@color/tabNormalColor"
+            app:textColorSelected="@color/tabSelectedColor"
+            app:touchDrawable="@drawable/tabbar_selector_bg"
+            app:unreadThreshold="999"/>
+
+
+        <com.hzy.layout.TabbarItemLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="25dp"
+            app:iconNormal="@mipmap/icon_mine_normal"
+            app:iconSelected="@mipmap/icon_mine_checked"
+            app:iconWidth="25dp"
+            app:itemMarginTop="2dp"
+            app:itemText="我"
+            app:itemTextSize="10dp"
+            app:openTouchBg="false"
+            app:textColorNormal="@color/tabNormalColor"
+            app:textColorSelected="@color/tabSelectedColor"
+            app:touchDrawable="@drawable/tabbar_selector_bg"/>
+
+    </com.hzy.layout.TabbarLayout>
+
+</LinearLayout>
+```
 
 
 

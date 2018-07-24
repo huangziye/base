@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="tab_gb">#F3F5F4</color>
+    <color name="tabNormalColor">#515051</color>
+    <color name="tabSelectedColor">#4e9525</color>
+    <color name="unreadTextColor">#00ff00</color>
+    <color name="msgTextColor">#00ff00</color>
+    <color name="selector_grey">#DDDDDD</color>
 </resources>
