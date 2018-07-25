@@ -4,27 +4,36 @@
               android:id="@+id/content"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@color/white"
               android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
+    <com.hzy.views.viewpager.NoScrollViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <com.hzy.layout.TabbarLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/selector_grey"/>
+
+    <com.hzy.layout.TabBarLayout
+        android:id="@+id/tabbarLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:smoothScroll="false">
 
-        <com.hzy.layout.TabbarItemLayout
+        <com.hzy.layout.TabBarItem
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:iconHeight="25dp"
-            app:iconNormal="@mipmap/icon_wechat_normal"
-            app:iconSelected="@mipmap/icon_wechat_checked"
+            app:iconNormal="@mipmap/ic_wechat_normal"
+            app:iconSelected="@mipmap/ic_wechat_checked"
             app:iconWidth="25dp"
             app:itemMarginTop="2dp"
             app:itemText="微信"
@@ -34,13 +43,13 @@
             app:textColorSelected="@color/tabSelectedColor"
             app:touchDrawable="@drawable/tabbar_selector_bg"/>
 
-        <com.hzy.layout.TabbarItemLayout
+        <com.hzy.layout.TabBarItem
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:iconHeight="25dp"
-            app:iconNormal="@mipmap/icon_contact_normal"
-            app:iconSelected="@mipmap/icon_contact_checked"
+            app:iconNormal="@mipmap/ic_contact_normal"
+            app:iconSelected="@mipmap/ic_contact_checked"
             app:iconWidth="25dp"
             app:itemMarginTop="2dp"
             app:itemText="通讯录"
@@ -52,13 +61,13 @@
             app:unreadThreshold="999"/>
 
 
-        <com.hzy.layout.TabbarItemLayout
+        <com.hzy.layout.TabBarItem
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:iconHeight="25dp"
-            app:iconNormal="@mipmap/icon_mine_normal"
-            app:iconSelected="@mipmap/icon_mine_checked"
+            app:iconNormal="@mipmap/ic_mine_normal"
+            app:iconSelected="@mipmap/ic_mine_checked"
             app:iconWidth="25dp"
             app:itemMarginTop="2dp"
             app:itemText="我"
@@ -68,6 +77,6 @@
             app:textColorSelected="@color/tabSelectedColor"
             app:touchDrawable="@drawable/tabbar_selector_bg"/>
 
-    </com.hzy.layout.TabbarLayout>
+    </com.hzy.layout.TabBarLayout>
 
 </LinearLayout>

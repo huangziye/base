@@ -18,29 +18,29 @@ import java.util.List;
  * 底部页签根节点
  * Created by ziye_huang on 2018/7/24.
  */
-public class TabbarLayout extends LinearLayout implements ViewPager.OnPageChangeListener {
+public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChangeListener {
     private static final String STATE_INSTANCE = "instance_state";
     private static final String STATE_ITEM = "state_item";
 
 
     private ViewPager mViewPager;
     private int mChildCount;//子条目个数
-    private List<TabbarItemLayout> mItemViews = new ArrayList<>();
+    private List<TabBarItem> mItemViews = new ArrayList<>();
     private int mCurrentItem;//当前条目的索引
     private boolean mSmoothScroll;
 
-    public TabbarLayout(Context context) {
+    public TabBarLayout(Context context) {
         this(context, null);
     }
 
-    public TabbarLayout(Context context, AttributeSet attrs) {
+    public TabBarLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TabbarLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TabBarLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TabbarLayout);
-        mSmoothScroll = ta.getBoolean(R.styleable.TabbarLayout_smoothScroll, false);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TabBarLayout);
+        mSmoothScroll = ta.getBoolean(R.styleable.TabBarLayout_smoothScroll, false);
         ta.recycle();
     }
 
@@ -70,11 +70,11 @@ public class TabbarLayout extends LinearLayout implements ViewPager.OnPageChange
         }
 
         for (int i = 0; i < mChildCount; i++) {
-            if (getChildAt(i) instanceof TabbarItemLayout) {
-                TabbarItemLayout tabbarItemLayout = (TabbarItemLayout) getChildAt(i);
-                mItemViews.add(tabbarItemLayout);
+            if (getChildAt(i) instanceof TabBarItem) {
+                TabBarItem tabBarItem = (TabBarItem) getChildAt(i);
+                mItemViews.add(tabBarItem);
                 //设置点击监听
-                tabbarItemLayout.setOnClickListener(new MyOnClickListener(i));
+                tabBarItem.setOnClickListener(new MyOnClickListener(i));
             } else {
                 throw new IllegalArgumentException("BottomBarLayout的子View必须是BottomBarItem");
             }
@@ -217,7 +217,7 @@ public class TabbarLayout extends LinearLayout implements ViewPager.OnPageChange
         this.mSmoothScroll = smoothScroll;
     }
 
-    public TabbarItemLayout getTabbarItem(int position) {
+    public TabBarItem getTabbarItem(int position) {
         return mItemViews.get(position);
     }
 
@@ -253,7 +253,7 @@ public class TabbarLayout extends LinearLayout implements ViewPager.OnPageChange
     private OnItemSelectedListener onItemSelectedListener;
 
     public interface OnItemSelectedListener {
-        void onItemSelected(TabbarItemLayout tabbarItemLayout, int previousPosition, int currentPosition);
+        void onItemSelected(TabBarItem tabBarItem, int previousPosition, int currentPosition);
     }
 
     public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {

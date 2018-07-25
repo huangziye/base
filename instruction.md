@@ -181,7 +181,7 @@ android:interpolator：设置动画的变化速度
 ```
 
 
-# 底部导航布局 （TabbarLayout 和 TabbarItemLayout）
+# 底部导航布局 （TabBarLayout 和 TabBarItem）
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -197,14 +197,14 @@ android:interpolator：设置动画的变化速度
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <com.hzy.layout.TabbarLayout
+    <com.hzy.layout.TabBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.hzy.layout.TabbarItemLayout
+        <com.hzy.layout.TabBarItem
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -220,7 +220,7 @@ android:interpolator：设置动画的变化速度
             app:textColorSelected="@color/tabSelectedColor"
             app:touchDrawable="@drawable/tabbar_selector_bg"/>
 
-        <com.hzy.layout.TabbarItemLayout
+        <com.hzy.layout.TabBarItem
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -238,7 +238,7 @@ android:interpolator：设置动画的变化速度
             app:unreadThreshold="999"/>
 
 
-        <com.hzy.layout.TabbarItemLayout
+        <com.hzy.layout.TabBarItem
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -254,10 +254,127 @@ android:interpolator：设置动画的变化速度
             app:textColorSelected="@color/tabSelectedColor"
             app:touchDrawable="@drawable/tabbar_selector_bg"/>
 
-    </com.hzy.layout.TabbarLayout>
+    </com.hzy.layout.TabBarLayout>
 
 </LinearLayout>
 ```
+
+**开启滑动效果**
+
+页签之间的切换默认关闭了滑动效果，如果需要开启可以通过调用 TabBarLayout 的 `setSmoothScroll()` 方法:
+
+```
+mTabBarLayout.setSmoothScroll(true);
+```
+
+也可以在布局文件中指定 TabBarLayout 的 `smoothScroll` 属性为 `true`。
+
+**设置条目选中的监听**
+
+```
+mTabBarLayout.setOnItemSelectedListener(new TabBarLayout.OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(final TabBarItem tabBarItem, int position) {
+           //do something
+    }
+});
+```
+
+
+**显示未读数、提示小红点、提示消息**
+
+```
+mTabBarLayout.setUnread(0,20);//设置第一个页签的未读数为20
+mTabBarLayout.setUnread(1,101);//设置第二个页签的未读数
+mTabBarLayout.showNotify(2);//设置第三个页签显示提示的小红点
+mTabBarLayout.setMsg(3,"NEW");//设置第四个页签显示NEW提示文字
+```
+
+当设置的未读数小于或等于0时，消失未读数的小红点将会消失；
+
+当未读数为1-99时，则显示对应的数字；
+
+当未读数大于99时，显示99+；
+
+**设置未读数阈值**
+
+未读数的阈值可以指定 TabBarItem 的 `unreadThreshold` 属性设置，默认该值为99，如设置 `app:unreadThreshold="999"` , 若未读数超过该值，则显示"999+"。
+
+隐藏提示小红点、提示消息。
+
+```
+mTabBarLayout.hideNotify(2);//隐藏第三个页签显示提示的小红点
+mTabBarLayout.hideMsg(3);//隐藏第四个页签显示的提示文字
+```
+
+
+**设置未读数字体颜色**
+
+```
+app:unreadTextColor="@color/unreadTextColor"
+```
+
+
+**设置未读数背景**
+
+```
+app:unreadTextBg="@drawable/shape_unread"
+```
+
+drawable的编写如下：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="20dp" />
+    <solid android:color="@color/red" />
+    <padding
+        android:left="4dp"
+        android:right="4dp"
+        android:top="1dp"
+        android:bottom="1dp"/>
+</shape>
+```
+
+
+**设置提示文字字体颜色、背景**
+
+
+```
+ app:msgTextColor="@color/msgTextColor"
+ app:msgTextBg="@drawable/shape_msg"
+ ```
+
+
+**设置提示点背景**
+
+```
+app:notifyPointBg="@drawable/shape_notify_point"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

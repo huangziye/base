@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TabbarItemLayout">
+    <!--底部导航栏-->
+    <declare-styleable name="TabBarItem">
         <!--默认状态下的图标-->
         <attr name="iconNormal" format="reference"/>
         <!--选中状态下的图标-->
@@ -52,7 +53,27 @@
         <attr name="unreadThreshold" format="integer"/>
     </declare-styleable>
 
-    <declare-styleable name="TabbarLayout">
+    <declare-styleable name="TabBarLayout">
         <attr name="smoothScroll" format="boolean"/>
+    </declare-styleable>
+
+    <!--标题属性-->
+    <declare-styleable name="TitleBar">
+        <attr name="title_text" format="reference|string"/>
+        <attr name="title_text_color" format="reference|color"/>
+        <attr name="title_text_size" format="reference|dimension"/>
+        <attr name="title_gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <attr name="left_text" format="reference|string"/>
+        <attr name="left_text_color" format="reference|color"/>
+        <attr name="left_text_size" format="reference|dimension"/>
+        <attr name="left_image" format="reference"/>
+        <attr name="right_text" format="reference|string"/>
+        <attr name="right_text_color" format="reference|color"/>
+        <attr name="right_text_size" format="reference|dimension"/>
+        <attr name="right_image" format="reference"/>
     </declare-styleable>
 </resources>

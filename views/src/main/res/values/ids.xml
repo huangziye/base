@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--标题栏导航栏-->
+    <item name="tv_title_text" type="id"/>
+    <item name="tv_left_text" type="id"/>
+    <item name="tv_left_image" type="id"/>
+    <item name="tv_right_text" type="id"/>
+    <item name="tv_right_image" type="id"/>
+</resources>

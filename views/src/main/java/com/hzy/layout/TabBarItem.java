@@ -24,7 +24,7 @@ import java.util.Locale;
  * 底部tab条目
  * Created by ziye_huang on 2018/7/24.
  */
-public class TabbarItemLayout extends LinearLayout {
+public class TabBarItem extends LinearLayout {
 
     private Context mContext;
     private int mIconNormalResId;//普通状态图标的资源id
@@ -57,18 +57,18 @@ public class TabbarItemLayout extends LinearLayout {
     private Drawable mMsgTextBg;
     private Drawable mNotifyPointBg;
 
-    public TabbarItemLayout(Context context) {
+    public TabBarItem(Context context) {
         this(context, null);
     }
 
-    public TabbarItemLayout(Context context, @Nullable AttributeSet attrs) {
+    public TabBarItem(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TabbarItemLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TabBarItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TabbarItemLayout);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TabBarItem);
         initAttrs(ta); //初始化属性
         ta.recycle();
         checkValues();//检查值是否合法
@@ -76,35 +76,35 @@ public class TabbarItemLayout extends LinearLayout {
     }
 
     private void initAttrs(TypedArray ta) {
-        mIconNormalResId = ta.getResourceId(R.styleable.TabbarItemLayout_iconNormal, -1);
-        mIconSelectedResId = ta.getResourceId(R.styleable.TabbarItemLayout_iconSelected, -1);
+        mIconNormalResId = ta.getResourceId(R.styleable.TabBarItem_iconNormal, -1);
+        mIconSelectedResId = ta.getResourceId(R.styleable.TabBarItem_iconSelected, -1);
 
-        mText = ta.getString(R.styleable.TabbarItemLayout_itemText);
-        mTextSize = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_itemTextSize, DensityUtil.sp2px(mContext, mTextSize));
+        mText = ta.getString(R.styleable.TabBarItem_itemText);
+        mTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemTextSize, DensityUtil.sp2px(mContext, mTextSize));
 
-        mTextColorNormal = ta.getColor(R.styleable.TabbarItemLayout_textColorNormal, mTextColorNormal);
-        mTextColorSelected = ta.getColor(R.styleable.TabbarItemLayout_textColorSelected, mTextColorSelected);
+        mTextColorNormal = ta.getColor(R.styleable.TabBarItem_textColorNormal, mTextColorNormal);
+        mTextColorSelected = ta.getColor(R.styleable.TabBarItem_textColorSelected, mTextColorSelected);
 
-        mMarginTop = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_itemMarginTop, DensityUtil.dp2px(mContext, mMarginTop));
+        mMarginTop = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemMarginTop, DensityUtil.dp2px(mContext, mMarginTop));
 
-        mOpenTouchBg = ta.getBoolean(R.styleable.TabbarItemLayout_openTouchBg, mOpenTouchBg);
-        mTouchDrawable = ta.getDrawable(R.styleable.TabbarItemLayout_touchDrawable);
+        mOpenTouchBg = ta.getBoolean(R.styleable.TabBarItem_openTouchBg, mOpenTouchBg);
+        mTouchDrawable = ta.getDrawable(R.styleable.TabBarItem_touchDrawable);
 
-        mIconWidth = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_iconWidth, 0);
-        mIconHeight = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_iconHeight, 0);
-        mItemPadding = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_itemPadding, 0);
+        mIconWidth = ta.getDimensionPixelSize(R.styleable.TabBarItem_iconWidth, 0);
+        mIconHeight = ta.getDimensionPixelSize(R.styleable.TabBarItem_iconHeight, 0);
+        mItemPadding = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemPadding, 0);
 
-        mUnreadTextSize = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_unreadTextSize, DensityUtil.sp2px(mContext, mUnreadTextSize));
-        mUnreadTextColor = ta.getColor(R.styleable.TabbarItemLayout_unreadTextColor, 0xFFFFFFFF);
-        mUnreadTextBg = ta.getDrawable(R.styleable.TabbarItemLayout_unreadTextBg);
+        mUnreadTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_unreadTextSize, DensityUtil.sp2px(mContext, mUnreadTextSize));
+        mUnreadTextColor = ta.getColor(R.styleable.TabBarItem_unreadTextColor, 0xFFFFFFFF);
+        mUnreadTextBg = ta.getDrawable(R.styleable.TabBarItem_unreadTextBg);
 
-        mMsgTextSize = ta.getDimensionPixelSize(R.styleable.TabbarItemLayout_msgTextSize, DensityUtil.sp2px(mContext, mMsgTextSize));
-        mMsgTextColor = ta.getColor(R.styleable.TabbarItemLayout_msgTextColor, 0xFFFFFFFF);
-        mMsgTextBg = ta.getDrawable(R.styleable.TabbarItemLayout_msgTextBg);
+        mMsgTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_msgTextSize, DensityUtil.sp2px(mContext, mMsgTextSize));
+        mMsgTextColor = ta.getColor(R.styleable.TabBarItem_msgTextColor, 0xFFFFFFFF);
+        mMsgTextBg = ta.getDrawable(R.styleable.TabBarItem_msgTextBg);
 
-        mNotifyPointBg = ta.getDrawable(R.styleable.TabbarItemLayout_notifyPointBg);
+        mNotifyPointBg = ta.getDrawable(R.styleable.TabBarItem_notifyPointBg);
 
-        unreadNumThreshold = ta.getInteger(R.styleable.TabbarItemLayout_unreadThreshold, 99);
+        unreadNumThreshold = ta.getInteger(R.styleable.TabBarItem_unreadThreshold, 99);
     }
 
     /**
@@ -183,7 +183,7 @@ public class TabbarItemLayout extends LinearLayout {
 
     @NonNull
     private View initView() {
-        View view = View.inflate(mContext, R.layout.item_bottom_bar, null);
+        View view = View.inflate(mContext, R.layout.item_tab_bar, null);
         if (mItemPadding != 0) {
             //如果有设置item的padding
             view.setPadding(mItemPadding, mItemPadding, mItemPadding, mItemPadding);
@@ -237,10 +237,10 @@ public class TabbarItemLayout extends LinearLayout {
     /**
      * 设置未读数
      *
-     * @param unreadNum 小于等于{@link TabbarItemLayout#unreadNumThreshold}则隐藏，
-     *                  大于0小于{@link TabbarItemLayout#unreadNumThreshold}则显示对应数字，
-     *                  超过{@link TabbarItemLayout#unreadNumThreshold}
-     *                  显示{@link TabbarItemLayout#unreadNumThreshold}+
+     * @param unreadNum 小于等于{@link TabBarItem#unreadNumThreshold}则隐藏，
+     *                  大于0小于{@link TabBarItem#unreadNumThreshold}则显示对应数字，
+     *                  超过{@link TabBarItem#unreadNumThreshold}
+     *                  显示{@link TabBarItem#unreadNumThreshold}+
      */
     public void setUnreadNum(int unreadNum) {
         setTvVisiable(mTvUnread);

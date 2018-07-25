@@ -9,6 +9,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,53 @@ public final class StatusBarUtil {
      */
     public static void setStatusBarColor(Activity activity, @ColorInt int color) {
         setStatusBarColor(activity, color, DEFAULT_STATUS_BAR_ALPHA);
+    }
+
+    /**
+     * 设置状态栏沉浸的颜色
+     *
+     * @param activity
+     * @param statusColor
+     */
+    public static void setStatusBarColor2(Activity activity, @ColorInt int statusColor) {
+        Window window = activity.getWindow();
+        ViewGroup mContentView = (ViewGroup) activity.findViewById(Window.ID_ANDROID_CONTENT);
+
+        // 如果SDK的版本在4.4之上，那么应用沉浸式状态栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //First translucent status bar.
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                //After LOLLIPOP not translucent status bar
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                //Then call setStatusBarColor.
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(statusColor);
+
+                if (mContentView.getChildAt(0) != null) {
+                    ViewCompat.setFitsSystemWindows(mContentView.getChildAt(0), true);
+                }
+            } else {
+                int statusBarHeight = StatusBarUtil.getStatusBarHeight(activity);
+
+                //Before LOLLIPOP create icon_card_bg_shape fake status bar View.
+                View mTopView = mContentView.getChildAt(0);
+                if (mTopView != null && mTopView.getLayoutParams() != null && mTopView.getLayoutParams().height == statusBarHeight) {
+                    //if fake status bar view exist, we can setBackgroundColor and return.
+                    mTopView.setBackgroundColor(statusColor);
+                    return;
+                }
+                //now topView is layout content
+                if (mTopView != null) {
+                    ViewCompat.setFitsSystemWindows(mTopView, true);
+                }
+
+                mTopView = new View(activity);
+                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight);
+                mTopView.setBackgroundColor(statusColor);
+                mContentView.addView(mTopView, 0, lp);
+            }
+        }
     }
 
     /**
