@@ -18,7 +18,7 @@ public class App extends Application {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                StatusBarUtil.setStatusBarColor(activity, ResUtil.getColor(activity, R.color.colorPrimary), 0);
+                StatusBarUtil.setStatusBarColor(activity, ResUtil.getColor(activity, R.color.theme_color), 0);
             }
 
             @Override

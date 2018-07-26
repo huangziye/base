@@ -1,5 +1,6 @@
 package com.hzy.base.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.hzy.base.R;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * 启动页（以fragment的方式）
@@ -36,10 +39,15 @@ public class SplashFragment extends Fragment {
             public void run() {
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 getActivity().getSupportFragmentManager().beginTransaction().remove(SplashFragment.this).commit();
-
             }
         }, 3000);
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+        }
+    }
 }

@@ -23,6 +23,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".GuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen">
+        </activity>
+        <activity
             android:name=".OtherActivity"
             android:screenOrientation="portrait"/>
     </application>
