@@ -7,8 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
+import com.hzy.base.MainActivity;
 import com.hzy.base.R;
 
 import static android.app.Activity.RESULT_OK;
@@ -37,8 +37,15 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                getActivity().getSupportFragmentManager().beginTransaction().remove(SplashFragment.this).commit();
+                ((MainActivity)getActivity()).splashCallback();
+
+                /*if (true) {
+                    ((MainActivity)getActivity()).guideViewStub.inflate();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new GuideFragment()).commit();
+                }else {
+                    getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                    getActivity().getSupportFragmentManager().beginTransaction().remove(SplashFragment.this).commit();
+                }*/
             }
         }, 3000);
 

@@ -107,13 +107,13 @@ usage
 
 
 
-- Common dialog
+- Base dialog
 
 usage
 
-It is a abstract base class. Custom dialogs are inherited from CommonDialog  and override method.
+It is a abstract base class. Custom dialogs are inherited from BaseDialog  and override method.
 
-- Inherited from `CommonDialog`
+- Inherited from `BaseDialog`
 - Override method
 - Show dialog `new XXXDialog().show(getSupportFragmentManager(),"dialog");`
 

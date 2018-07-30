@@ -18,7 +18,7 @@ import com.hzy.R;
  * 通用对话框基类
  * Created by ziye_huang on 2018/7/19.
  */
-public abstract class CommonDialog extends DialogFragment {
+public abstract class BaseDialog extends DialogFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

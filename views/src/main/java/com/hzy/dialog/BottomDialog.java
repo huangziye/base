@@ -11,7 +11,7 @@ import com.hzy.utils.AppUtil;
  * 底部对话框
  * Created by ziye_huang on 2018/7/18.
  */
-public abstract class BottomDialog extends CommonDialog {
+public abstract class BottomDialog extends BaseDialog {
 
     @Override
     protected int setWidth() {
