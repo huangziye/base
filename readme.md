@@ -1,4 +1,6 @@
 
+[![](https://jitpack.io/v/huangziye/base.svg)](https://jitpack.io/#huangziye/base)
+
 # Add ` base ` to project
 
 - Step 1：Add the JitPack repository to your build file
