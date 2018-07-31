@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.hzy.base.MainActivity;
 import com.hzy.base.R;
 import com.hzy.base.adapter.GuideAdapter;
-import com.hzy.tools.DensityUtil;
+import com.hzy.utils.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.List;

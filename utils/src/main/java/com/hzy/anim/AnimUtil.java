@@ -6,7 +6,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import com.hzy.tools.AppUtil;
+import com.hzy.utils.AppUtil;
 
 /**
  * 调用方式： view.startAnimation(AnimUtil.method(...));

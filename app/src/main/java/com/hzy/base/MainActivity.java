@@ -15,7 +15,7 @@ import com.hzy.base.fragment.SplashFragment;
 import com.hzy.base.fragment.WechatFragment;
 import com.hzy.cache.ACache;
 import com.hzy.layout.TabBarLayout;
-import com.hzy.widget.viewpager.NoScrollViewPager;
+import com.hzy.views.viewpager.NoScrollViewPager;
 
 import java.util.ArrayList;
 import java.util.List;

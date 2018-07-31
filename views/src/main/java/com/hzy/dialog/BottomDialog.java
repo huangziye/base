@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hzy.tools.AppUtil;
+import com.hzy.utils.AppUtil;
 
 /**
  * 底部对话框

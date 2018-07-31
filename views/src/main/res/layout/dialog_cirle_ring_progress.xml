@@ -4,7 +4,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_download_dialog">
 
-    <com.hzy.widget.progress.CircleProgressView
+    <com.hzy.views.progress.CircleProgressView
         android:id="@+id/circleProgressView"
         android:layout_width="100dp"
         android:layout_height="100dp"

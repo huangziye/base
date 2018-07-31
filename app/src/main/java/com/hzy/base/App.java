@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
-import com.hzy.tools.ResUtil;
-import com.hzy.tools.StatusBarUtil;
+import com.hzy.utils.ResUtil;
+import com.hzy.utils.StatusBarUtil;
 
 /**
  * Created by ziye_huang on 2018/7/25.

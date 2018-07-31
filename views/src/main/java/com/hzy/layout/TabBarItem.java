@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hzy.views.R;
-import com.hzy.tools.DensityUtil;
+import com.hzy.utils.DensityUtil;
 
 import java.util.Locale;
 

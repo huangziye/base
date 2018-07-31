@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hzy.base.adapter.GuideAdapter;
-import com.hzy.tools.DensityUtil;
+import com.hzy.utils.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.List;
