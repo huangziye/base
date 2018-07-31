@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hzy.views.R;
-import com.hzy.utils.ResUtil;
+import com.hzy.tools.ResUtil;
 
 /**
  * Created by ziye_huang on 2018/7/18.

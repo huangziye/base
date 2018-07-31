@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.webkit.URLUtil;
 
-import com.hzy.utils.CloseUtil;
+import com.hzy.tools.CloseUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
