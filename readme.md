@@ -18,9 +18,11 @@ allprojects {
 
 - Step 2：Add the dependency
 
+The latest version shall prevail.
+
 ```android
 dependencies {
-        implementation 'com.github.huangziye:base:1.0.0'
+        implementation 'com.github.huangziye:base:1.0.1'
 }
 ```
 
