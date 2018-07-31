@@ -22,7 +22,7 @@ The latest version shall prevail.
 
 ```android
 dependencies {
-        implementation 'com.github.huangziye:base:1.0.1'
+        implementation 'com.github.huangziye:base:1.0.2'
 }
 ```
 
