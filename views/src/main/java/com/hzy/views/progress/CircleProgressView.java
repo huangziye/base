@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.hzy.R;
+import com.hzy.views.R;
 import com.hzy.utils.ResUtil;
 
 

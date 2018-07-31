@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import com.hzy.R;
+import com.hzy.views.R;
 
 /**
  * 通用对话框基类

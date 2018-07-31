@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.hzy.R;
+import com.hzy.views.R;
 
 /**
  * 自定义标题栏

@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hzy.R;
+import com.hzy.views.R;
 import com.hzy.utils.ResUtil;
 
 /**

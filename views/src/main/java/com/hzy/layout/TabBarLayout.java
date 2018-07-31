@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.hzy.R;
+import com.hzy.views.R;
 
 import java.util.ArrayList;
 import java.util.List;
