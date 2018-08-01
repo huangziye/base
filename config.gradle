@@ -1,0 +1,40 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 14,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0.0"
+    ]
+
+    version = [
+            androidSupportSdkVersion: "28.+",
+            butterknifeSdkVersion   : "8.8.1",
+            glideSdkVersion         : "4.7.1",
+    ]
+    dependencies = [
+            //base
+            "support-v4"          : "com.android.support:support-v4:${version.androidSupportSdkVersion}",
+            "appcompat-v7"        : "com.android.support:appcompat-v7:${version.androidSupportSdkVersion}",
+            "annotations"         : "com.android.support:support-annotations:${version.androidSupportSdkVersion}",
+            "constraint-layout"   : "com.android.support.constraint:constraint-layout:1.1.2",
+
+            //test
+            "junit"               : "junit:junit:4.12",
+            "runner"              : "com.android.support.test:runner:1.0.2",
+            "androidJUnitRunner"  : "android.support.test.runner.AndroidJUnitRunner",
+            "espresso-core"       : "com.android.support.test.espresso:espresso-core:3.0.2",
+
+            //eventbus
+            "eventbus"            : "org.greenrobot:eventbus:3.1.1",
+
+            //butterknife
+            "butterknife"         : "com.jakewharton:butterknife:${version.butterknifeSdkVersion}",
+            "butterknife-compiler": "com.jakewharton:butterknife-compiler:${version.butterknifeSdkVersion}",
+
+            //Glide
+            "glide"               : "com.github.bumptech.glide:glide:${version.glideSdkVersion}",
+            "glide-compiler"      : "com.github.bumptech.glide:compiler:${version.glideSdkVersion}"
+    ]
+
+}
