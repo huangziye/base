@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hzy.views.R;
-import com.hzy.utils.ResUtil;
 
 /**
  * Created by ziye_huang on 2018/7/18.
@@ -132,7 +131,7 @@ public final class LoadingDialog extends Dialog {
             LoadingDialog loadingDailog = new LoadingDialog(context, R.style.LoadingDialogStyle);
             LinearLayout llLoadingDialog = view.findViewById(R.id.ll_loading_dialog);
             TextView msgText = (TextView) view.findViewById(R.id.tipTextView);
-            llLoadingDialog.setBackgroundDrawable(ResUtil.getDrawable(context, -1 == bgColor ? R.drawable.bg_loading_dialog : bgColor));
+            llLoadingDialog.setBackgroundDrawable(context.getResources().getDrawable(-1 == bgColor ? R.drawable.bg_loading_dialog : bgColor));
             if (isShowMessage) {
                 if (-1 != textSize) {
                     msgText.setTextSize(textSize);

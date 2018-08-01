@@ -12,8 +12,6 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.hzy.utils.DensityUtil;
-
 import java.util.Timer;
 
 /**
@@ -45,7 +43,7 @@ public class DynamicWaveView extends View {
     public DynamicWaveView(Context context, AttributeSet attrs) {
         super(context, attrs);
         // 将dp转化为px，用于控制不同分辨率上移动速度基本一致
-        mXOffsetSpeedTwo = DensityUtil.dp2px(context, TRANSLATE_X_SPEED_TWO);
+        mXOffsetSpeedTwo = dp2px(context, TRANSLATE_X_SPEED_TWO);
         // 初始绘制波纹的画笔
         mWavePaint = new Paint();
         // 去除画笔锯齿
@@ -150,5 +148,17 @@ public class DynamicWaveView extends View {
         mTotalHeight = h;
     }
 
-
+    /**
+     * dp转px
+     *
+     * @param context
+     * @param dpValue
+     * @return
+     */
+    public static int dp2px(Context context, float dpValue) {
+        //这个得到的不应该叫做密度，应该是密度的一个比例。不是真实的屏幕密度，而是相对于某个值的屏幕密度。
+        //也可以说是相对密度
+        float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
 }

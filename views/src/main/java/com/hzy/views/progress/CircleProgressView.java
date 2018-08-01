@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.hzy.views.R;
-import com.hzy.utils.ResUtil;
 
 
 /**
@@ -73,8 +72,8 @@ public class CircleProgressView extends View {
         mRadius = typeArray.getDimension(R.styleable.CircleProgressView_radius, 80);
         mStrokeWidth = typeArray.getDimension(R.styleable.CircleProgressView_strokeWidth, 10);
         mCircleColor = typeArray.getColor(R.styleable.CircleProgressView_circleColor, 0xFFFFFFFF);
-        mRingColor = typeArray.getColor(R.styleable.CircleProgressView_ringColor, ResUtil.getColor(context, R.color.color_circle_ring));
-        mRingBgColor = typeArray.getColor(R.styleable.CircleProgressView_ringBgColor, ResUtil.getColor(context, R.color.color_circle_ring_bg));
+        mRingColor = typeArray.getColor(R.styleable.CircleProgressView_ringColor, context.getResources().getColor( R.color.color_circle_ring));
+        mRingBgColor = typeArray.getColor(R.styleable.CircleProgressView_ringBgColor, context.getResources().getColor( R.color.color_circle_ring_bg));
 
         mRingRadius = mRadius + mStrokeWidth / 2;
     }

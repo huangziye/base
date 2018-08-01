@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hzy.views.R;
-import com.hzy.utils.DensityUtil;
 
 import java.util.Locale;
 
@@ -80,12 +79,12 @@ public class TabBarItem extends LinearLayout {
         mIconSelectedResId = ta.getResourceId(R.styleable.TabBarItem_iconSelected, -1);
 
         mText = ta.getString(R.styleable.TabBarItem_itemText);
-        mTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemTextSize, DensityUtil.sp2px(mContext, mTextSize));
+        mTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemTextSize, sp2px(mContext, mTextSize));
 
         mTextColorNormal = ta.getColor(R.styleable.TabBarItem_textColorNormal, mTextColorNormal);
         mTextColorSelected = ta.getColor(R.styleable.TabBarItem_textColorSelected, mTextColorSelected);
 
-        mMarginTop = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemMarginTop, DensityUtil.dp2px(mContext, mMarginTop));
+        mMarginTop = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemMarginTop, dp2px(mContext, mMarginTop));
 
         mOpenTouchBg = ta.getBoolean(R.styleable.TabBarItem_openTouchBg, mOpenTouchBg);
         mTouchDrawable = ta.getDrawable(R.styleable.TabBarItem_touchDrawable);
@@ -94,11 +93,11 @@ public class TabBarItem extends LinearLayout {
         mIconHeight = ta.getDimensionPixelSize(R.styleable.TabBarItem_iconHeight, 0);
         mItemPadding = ta.getDimensionPixelSize(R.styleable.TabBarItem_itemPadding, 0);
 
-        mUnreadTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_unreadTextSize, DensityUtil.sp2px(mContext, mUnreadTextSize));
+        mUnreadTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_unreadTextSize, sp2px(mContext, mUnreadTextSize));
         mUnreadTextColor = ta.getColor(R.styleable.TabBarItem_unreadTextColor, 0xFFFFFFFF);
         mUnreadTextBg = ta.getDrawable(R.styleable.TabBarItem_unreadTextBg);
 
-        mMsgTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_msgTextSize, DensityUtil.sp2px(mContext, mMsgTextSize));
+        mMsgTextSize = ta.getDimensionPixelSize(R.styleable.TabBarItem_msgTextSize, sp2px(mContext, mMsgTextSize));
         mMsgTextColor = ta.getColor(R.styleable.TabBarItem_msgTextColor, 0xFFFFFFFF);
         mMsgTextBg = ta.getDrawable(R.styleable.TabBarItem_msgTextBg);
 
@@ -268,5 +267,31 @@ public class TabBarItem extends LinearLayout {
 
     public void hideNotify() {
         mTvNotify.setVisibility(GONE);
+    }
+
+    /**
+     * dp转px
+     *
+     * @param context
+     * @param dpValue
+     * @return
+     */
+    public static int dp2px(Context context, float dpValue) {
+        //这个得到的不应该叫做密度，应该是密度的一个比例。不是真实的屏幕密度，而是相对于某个值的屏幕密度。
+        //也可以说是相对密度
+        float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * sp转px
+     *
+     * @param context
+     * @param spValue
+     * @return
+     */
+    public static int sp2px(Context context, float spValue) {
+        float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
     }
 }
