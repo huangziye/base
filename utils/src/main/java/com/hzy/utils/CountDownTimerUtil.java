@@ -60,6 +60,7 @@ public final class CountDownTimerUtil extends CountDownTimer {
                     } else if (drawable instanceof ColorDrawable) {
                         ((ColorDrawable) drawable).setColor(mTickBgColor);
                     }
+                    mTextView.setBackgroundDrawable(drawable);
                 } else {
                     mTextView.setBackgroundResource(mTickBgColor);
                 }
@@ -83,6 +84,7 @@ public final class CountDownTimerUtil extends CountDownTimer {
                     } else if (drawable instanceof ColorDrawable) {
                         ((ColorDrawable) drawable).setColor(mInitBgColor);
                     }
+                    mTextView.setBackgroundDrawable(drawable);
                 } else {
                     mTextView.setBackgroundResource(mInitBgColor);
                 }
