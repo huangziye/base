@@ -61,7 +61,7 @@ public final class CountDownTimerUtil extends CountDownTimer {
                         ((ColorDrawable) drawable).setColor(mTickBgColor);
                     }
                 } else {
-                    mTextView.setBackgroundColor(mTickBgColor);
+                    mTextView.setBackgroundResource(mTickBgColor);
                 }
             }
             //设置倒计时时间
@@ -84,7 +84,7 @@ public final class CountDownTimerUtil extends CountDownTimer {
                         ((ColorDrawable) drawable).setColor(mInitBgColor);
                     }
                 } else {
-                    mTextView.setBackgroundColor(mInitBgColor);
+                    mTextView.setBackgroundResource(mInitBgColor);
                 }
             }
             mTextView.setText(!TextUtils.isEmpty(mFinishMsg) ? mFinishMsg : "重新获取");
