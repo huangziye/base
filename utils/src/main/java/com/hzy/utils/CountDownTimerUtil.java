@@ -1,5 +1,8 @@
 package com.hzy.utils;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.CountDownTimer;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -50,7 +53,16 @@ public final class CountDownTimerUtil extends CountDownTimer {
                 mTextView.setTextColor(mTickTextColor);
             }
             if (-1 != mTickBgColor) {
-                mTextView.setBackgroundResource(mTickBgColor);
+                Drawable drawable = mTextView.getBackground();
+                if (null != drawable) {
+                    if (drawable instanceof GradientDrawable) {
+                        ((GradientDrawable) drawable).setColor(mTickBgColor);
+                    } else if (drawable instanceof ColorDrawable) {
+                        ((ColorDrawable) drawable).setColor(mTickBgColor);
+                    }
+                } else {
+                    mTextView.setBackgroundColor(mTickBgColor);
+                }
             }
             //设置倒计时时间
             mTextView.setText(millisUntilFinished / 1000 + "s");
@@ -64,7 +76,16 @@ public final class CountDownTimerUtil extends CountDownTimer {
                 mTextView.setTextColor(mInitTextColor);
             }
             if (-1 != mInitBgColor) {
-                mTextView.setBackgroundResource(mInitBgColor);
+                Drawable drawable = mTextView.getBackground();
+                if (null != drawable) {
+                    if (drawable instanceof GradientDrawable) {
+                        ((GradientDrawable) drawable).setColor(mInitBgColor);
+                    } else if (drawable instanceof ColorDrawable) {
+                        ((ColorDrawable) drawable).setColor(mInitBgColor);
+                    }
+                } else {
+                    mTextView.setBackgroundColor(mInitBgColor);
+                }
             }
             mTextView.setText(!TextUtils.isEmpty(mFinishMsg) ? mFinishMsg : "重新获取");
             mTextView.setClickable(true);//重新获得点击

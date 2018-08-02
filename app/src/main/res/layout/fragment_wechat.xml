@@ -16,21 +16,19 @@
         app:title_text="微信"
         app:title_text_size="20dp"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"/>
-    
-    <Space
-        android:id="@+id/space"
-        android:layout_width="wrap_content"
-        android:layout_height="4dp"/>
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Wechat"/>
+     <com.hzy.views.rolling.VerticalRollingTextView
+         android:id="@+id/verticalRollingTextView"
+         android:layout_width="100dp"
+         android:layout_height="30dp"
+         android:layout_gravity="center_vertical"
+         android:layout_marginTop="50dp"
+         android:background="@color/theme_color"
+         android:ellipsize="end"
+         android:maxLines="1"
+         android:textColor="@color/white"
+         android:textSize="20dp"
+         app:animInterval="1000"
+         app:itemCount="1"/>
 
 </LinearLayout>
