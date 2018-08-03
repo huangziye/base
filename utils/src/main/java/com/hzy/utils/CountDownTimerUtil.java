@@ -1,11 +1,10 @@
 package com.hzy.utils;
 
-import android.graphics.drawable.ColorDrawable;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.CountDownTimer;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
+import android.support.annotation.ColorRes;
 import android.text.TextUtils;
 import android.widget.TextView;
 
@@ -15,31 +14,33 @@ import android.widget.TextView;
  */
 public final class CountDownTimerUtil extends CountDownTimer {
 
+    private Context mContext;
     private TextView mTextView;
     private String mFinishMsg;
     /**
      * 倒计时进行中文本颜色
      */
-    @ColorInt
+    @ColorRes
     private int mTickTextColor = -1;
     /**
      * 倒计时进行中文本背景颜色
      */
-    @DrawableRes
+    @ColorRes
     private int mTickBgColor = -1;
     /**
      * 正常状态情况下文本颜色
      */
-    @ColorInt
+    @ColorRes
     private int mInitTextColor = -1;
     /**
      * 正常状态情况下文本背景颜色
      */
-    @DrawableRes
+    @ColorRes
     private int mInitBgColor = -1;
 
-    public CountDownTimerUtil(long millisInFuture, long countDownInterval, TextView mTextView) {
+    public CountDownTimerUtil(Context mContext, long millisInFuture, long countDownInterval, TextView mTextView) {
         super(millisInFuture, countDownInterval);
+        this.mContext = mContext;
         this.mTextView = mTextView;
     }
 
@@ -50,16 +51,14 @@ public final class CountDownTimerUtil extends CountDownTimer {
             //设置不可点击
             mTextView.setClickable(false);
             if (-1 != mTickTextColor) {
-                mTextView.setTextColor(mTickTextColor);
+                mTextView.setTextColor(mContext.getResources().getColor(mTickTextColor));
             }
             if (-1 != mTickBgColor) {
                 Drawable drawable = mTextView.getBackground();
-                if (null != drawable) {
-                    if (drawable instanceof GradientDrawable) {
-                        ((GradientDrawable) drawable).setColor(mTickBgColor);
-                    } else if (drawable instanceof ColorDrawable) {
-                        ((ColorDrawable) drawable).setColor(mTickBgColor);
-                    }
+                if (null != drawable && drawable instanceof GradientDrawable) {
+                    ((GradientDrawable) drawable).setColor(mContext.getResources().getColor(mTickBgColor));
+                } else {
+                    mTextView.setBackgroundResource(mTickBgColor);
                 }
             }
             //设置倒计时时间
@@ -71,16 +70,14 @@ public final class CountDownTimerUtil extends CountDownTimer {
     public void onFinish() {
         if (null != mTextView) {
             if (-1 != mInitTextColor) {
-                mTextView.setTextColor(mInitTextColor);
+                mTextView.setTextColor(mContext.getResources().getColor(mInitTextColor));
             }
             if (-1 != mInitBgColor) {
                 Drawable drawable = mTextView.getBackground();
-                if (null != drawable) {
-                    if (drawable instanceof GradientDrawable) {
-                        ((GradientDrawable) drawable).setColor(mInitBgColor);
-                    } else if (drawable instanceof ColorDrawable) {
-                        ((ColorDrawable) drawable).setColor(mInitBgColor);
-                    }
+                if (null != drawable && drawable instanceof GradientDrawable) {
+                    ((GradientDrawable) drawable).setColor(mContext.getResources().getColor(mInitBgColor));
+                } else {
+                    mTextView.setBackgroundResource(mInitBgColor);
                 }
             }
             mTextView.setText(!TextUtils.isEmpty(mFinishMsg) ? mFinishMsg : "重新获取");
