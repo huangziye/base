@@ -60,9 +60,6 @@ public final class CountDownTimerUtil extends CountDownTimer {
                     } else if (drawable instanceof ColorDrawable) {
                         ((ColorDrawable) drawable).setColor(mTickBgColor);
                     }
-                    mTextView.setBackgroundDrawable(drawable);
-                } else {
-                    mTextView.setBackgroundResource(mTickBgColor);
                 }
             }
             //设置倒计时时间
@@ -84,9 +81,6 @@ public final class CountDownTimerUtil extends CountDownTimer {
                     } else if (drawable instanceof ColorDrawable) {
                         ((ColorDrawable) drawable).setColor(mInitBgColor);
                     }
-                    mTextView.setBackgroundDrawable(drawable);
-                } else {
-                    mTextView.setBackgroundResource(mInitBgColor);
                 }
             }
             mTextView.setText(!TextUtils.isEmpty(mFinishMsg) ? mFinishMsg : "重新获取");
