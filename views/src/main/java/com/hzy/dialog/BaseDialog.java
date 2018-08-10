@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -19,6 +20,15 @@ import com.hzy.views.R;
  * Created by ziye_huang on 2018/7/19.
  */
 public abstract class BaseDialog extends DialogFragment {
+
+    /**
+     * 对话框动画效果
+     * 0 使用默认效果
+     * -1 不使用动画效果
+     * 大于0 使用自定义效果
+     */
+    @StyleRes
+    private int mAnimationResId;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +49,11 @@ public abstract class BaseDialog extends DialogFragment {
         //        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //        window.setLayout(dm.widthPixels, window.getAttributes().height = getActivity().getWindowManager().getDefaultDisplay().getHeight() * 3 / 5);
         window.setLayout(setWidth(), setHeight());
-        window.setWindowAnimations(R.style.BottomDialogAnimation);
+        if (-1 == mAnimationResId) {
+            window.setWindowAnimations(R.style.BottomDialogAnimation);
+        } else {
+            window.setWindowAnimations(0 == mAnimationResId ? R.style.BottomDialogAnimation : mAnimationResId);
+        }
         window.setGravity(setGravity());
     }
 
@@ -49,6 +63,10 @@ public abstract class BaseDialog extends DialogFragment {
         //去除标题栏
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         return createView(inflater, container);
+    }
+
+    protected void setAnimation(@StyleRes int redId) {
+        this.mAnimationResId = redId;
     }
 
     /**

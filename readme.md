@@ -22,7 +22,8 @@ The latest version shall prevail.
 
 ```android
 dependencies {
-        implementation 'com.github.huangziye:base:1.0.5'
+        implementation 'com.github.huangziye.base:utils:1.0.6'
+        implementation 'com.github.huangziye.base:views:1.0.6'
 }
 ```
 

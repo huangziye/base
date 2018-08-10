@@ -37,7 +37,9 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ((MainActivity)getActivity()).splashCallback();
+                if (null != getActivity()) {
+                    ((MainActivity) getActivity()).splashCallback();
+                }
 
                 /*if (true) {
                     ((MainActivity)getActivity()).guideViewStub.inflate();

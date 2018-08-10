@@ -81,7 +81,6 @@ public class TitleBar extends RelativeLayout {
         addView(mLeftText);
     }
 
-
     @NonNull
     private TextView createTextView(Context context, int id, CharSequence charSequence, LayoutParams params) {
         TextView textView = new TextView(context);
