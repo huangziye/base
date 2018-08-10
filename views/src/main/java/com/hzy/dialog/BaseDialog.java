@@ -21,15 +21,6 @@ import com.hzy.views.R;
  */
 public abstract class BaseDialog extends DialogFragment {
 
-    /**
-     * 对话框动画效果
-     * 0 使用默认效果
-     * -1 不使用动画效果
-     * 大于0 使用自定义效果
-     */
-    @StyleRes
-    private int mAnimationResId;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +40,8 @@ public abstract class BaseDialog extends DialogFragment {
         //        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //        window.setLayout(dm.widthPixels, window.getAttributes().height = getActivity().getWindowManager().getDefaultDisplay().getHeight() * 3 / 5);
         window.setLayout(setWidth(), setHeight());
-        if (-1 == mAnimationResId) {
-            window.setWindowAnimations(R.style.BottomDialogAnimation);
-        } else {
-            window.setWindowAnimations(0 == mAnimationResId ? R.style.BottomDialogAnimation : mAnimationResId);
+        if (-1 != setAnimation()) {
+            window.setWindowAnimations(0 == setAnimation() ? R.style.BottomDialogAnimation : setAnimation());
         }
         window.setGravity(setGravity());
     }
@@ -65,8 +54,17 @@ public abstract class BaseDialog extends DialogFragment {
         return createView(inflater, container);
     }
 
-    protected void setAnimation(@StyleRes int redId) {
-        this.mAnimationResId = redId;
+    /**
+     * 对话框动画效果
+     * 0 使用默认效果
+     * -1 不使用动画效果
+     * 大于0 使用自定义效果
+     *
+     * @return
+     */
+    @StyleRes
+    protected int setAnimation() {
+        return 0;
     }
 
     /**
