@@ -34,7 +34,7 @@ public final class CrashHandler implements Thread.UncaughtExceptionHandler {
     private Activity mSplashActivity;//出现异常需要重启的页面
 
     private CrashHandler() {
-        throw new AssertionError("No Instance.");
+
     }
 
     public static CrashHandler getInstance() {
