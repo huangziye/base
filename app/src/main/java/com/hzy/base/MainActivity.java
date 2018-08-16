@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.hzy.base.adapter.TabbarAdapter;
 import com.hzy.base.fragment.ContactFragment;
 import com.hzy.base.fragment.GuideFragment;
-import com.hzy.base.fragment.MineFragment;
+import com.hzy.base.fragment.RecyclerFragment;
 import com.hzy.base.fragment.SplashFragment;
 import com.hzy.base.fragment.WechatFragment;
 import com.hzy.cache.ACache;
@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         fragments.add(new WechatFragment());
         fragments.add(new ContactFragment());
-        fragments.add(new MineFragment());
+//        fragments.add(new MineFragment());
+        fragments.add(new RecyclerFragment());
 
         mViewPager.setAdapter(new TabbarAdapter(getSupportFragmentManager(), fragments));
         mTabBarLayout.setViewPager(mViewPager);

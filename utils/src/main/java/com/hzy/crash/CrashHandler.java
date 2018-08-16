@@ -93,6 +93,7 @@ public final class CrashHandler implements Thread.UncaughtExceptionHandler {
             // 结束应用
             //            BaseApp.exitApp();
             android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(-1);
 
             /*Intent intent = new Intent(mContext, SplashActivity.class);
             // 新开任务栈
