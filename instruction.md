@@ -355,6 +355,67 @@ drawable的编写如下：
 app:notifyPointBg="@drawable/shape_notify_point"
 ```
 
+# VerticalRollingTextView 使用
+
+```xml
+<com.hzy.views.rolling.VerticalRollingTextView
+    android:id="@+id/verticalRollingView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_weight="1"
+    android:duration="1000"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:textColor="@color/white"
+    android:textSize="@dimen/_14dp"
+    app:animInterval="2000"
+    app:maxTextSize="@dimen/_14dp"
+    app:minTextSize="@dimen/_6dp"/>
+```
+
+**java代码**
+
+```java
+mVerticalRollingTextView.setAdapter(new VerticalRollingTextAdapter<Ads>(adsList) {
+    @Override
+    protected CharSequence text(Ads ads) {
+        return ads.getTitle();
+    }
+});
+mVerticalRollingTextView.run();
+```
+
+# 卡片叠加效果
+
+使用方式
+
+```java
+List<String> mData = new ArrayList<>();
+mData.add("aaaaaaaaa");
+mData.add("bbbbbbbbb");
+mData.add("ccccccccc");
+mData.add("ddddddddd");
+mData.add("eeeeeddde");
+
+recyclerView.setAdapter(adapter = new BaseRecyclerViewAdapter(this, mData, R.layout.item_recycler) {
+    @Override
+    public void convert(BaseRecyclerViewViewHolder viewHolder, Object o) {
+        viewHolder.setText(R.id.tv_name, o.toString());
+    }
+});
+
+ItemTouchHelper.Callback itemTouchHelperCallback = new RecyclerViewItemTouchHelperCallback<String>(recyclerView, adapter, mData);
+ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
+recyclerView.setLayoutManager(new RecyclerViewLayoutManager(recyclerView, itemTouchHelper));
+itemTouchHelper.attachToRecyclerView(recyclerView);
+```
+
+**effect picture：**
+
+![下载效果图](https://github.com/huangziye/base/blob/master/screenshot/stackview.gif)
 
 
 
