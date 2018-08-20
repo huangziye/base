@@ -420,9 +420,42 @@ itemTouchHelper.attachToRecyclerView(recyclerView);
 
 
 
+# StepView
+
+```xml
+<com.hzy.stepview.widget.StepView
+        android:id="@+id/step_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:padding="16dp"
+        app:sv_animationDuration="200"
+        app:sv_animationType="All"
+        app:sv_defaultCircleColor="@color/hint_text_color"
+        app:sv_doneCircleColor="@color/main_text_blue_color"
+        app:sv_doneCircleRadius="14dp"
+        app:sv_doneStepLineColor="@color/main_text_blue_color"
+        app:sv_doneStepMarkColor="#f00"
+        app:sv_doneTextColor="@color/main_text_blue_color"
+        app:sv_nextStepLineColor="@color/hint_text_color"
+        app:sv_nextTextColor="@color/hint_text_color"
+        app:sv_selectedCircleColor="@color/main_text_blue_color"
+        app:sv_selectedCircleRadius="14dp"
+        app:sv_selectedStepNumberColor="@color/white"
+        app:sv_selectedTextColor="@color/main_text_blue_color"
+        app:sv_stepLineWidth="0.5dp"
+        app:sv_stepNumberTextSize="12dp"
+        app:sv_stepPadding="12dp"
+        app:sv_steps="@array/steps"
+        app:sv_stepsNumber="3"
+        app:sv_textPadding="12dp"
+        app:sv_textSize="14dp"/>
+```
 
 
-
+```java
+stepView.go(step, true);
+```
 
 
 

@@ -108,4 +108,43 @@
         <attr name="loadingProgressBarColor" format="color"/>
         <attr name="loadingBackgroundColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="StepView">
+        <!--选中圆环的颜色-->
+        <attr name="sv_selectedCircleColor" format="color"/>
+        <!--选中圆环的半径-->
+        <attr name="sv_selectedCircleRadius" format="dimension"/>
+        <!--选中文本的颜色-->
+        <attr name="sv_selectedTextColor" format="color"/>
+        <!--选中step number的color-->
+        <attr name="sv_selectedStepNumberColor" format="color"/>
+        <!--选中step number文本大小-->
+        <attr name="sv_stepNumberTextSize" format="dimension"/>
+
+        <attr name="sv_doneStepMarkColor" format="color"/>
+        <attr name="sv_doneCircleColor" format="color"/>
+        <attr name="sv_doneCircleRadius" format="dimension"/>
+        <attr name="sv_doneTextColor" format="color"/>
+        <attr name="sv_nextTextColor" format="color"/>
+        <attr name="sv_nextStepLineColor" format="color"/>
+        <attr name="sv_doneStepLineColor" format="color"/>
+        <attr name="sv_stepPadding" format="dimension"/>
+        <attr name="sv_textPadding" format="dimension"/>
+        <attr name="sv_stepLineWidth" format="dimension"/>
+        <attr name="sv_textSize" format="dimension"/>
+        <attr name="sv_background" format="color"/>
+        <!--默认圆环的颜色-->
+        <attr name="sv_defaultCircleColor" format="color"/>
+        <attr name="sv_animationDuration" format="integer"/>
+        <attr name="sv_stepViewStyle" format="reference"/>
+        <attr name="sv_animationType" format="enum">
+            <enum name="Line" value="0"/>
+            <enum name="Circle" value="1"/>
+            <enum name="All" value="2"/>
+            <enum name="None" value="3"/>
+        </attr>
+        <attr name="sv_stepsNumber" format="integer"/>
+        <attr name="sv_steps" format="reference"/>
+        <attr name="sv_typeface" format="reference"/>
+    </declare-styleable>
 </resources>
