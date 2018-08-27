@@ -10,4 +10,6 @@
     <color name="color_circle_ring">#27253d</color>
     <!--下载对话框圆环的背景颜色-->
     <color name="color_circle_ring_bg">#eeeeee</color>
+
+    <color name="pomegranate">#f4511e</color>
 </resources>

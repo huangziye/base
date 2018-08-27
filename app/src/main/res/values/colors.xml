@@ -12,4 +12,6 @@
     <color name="unreadTextColor">#00ff00</color>
     <color name="msgTextColor">#00ff00</color>
     <color name="selector_grey">#DDDDDD</color>
+
+    <color name="mine_shaft">#303030</color>
 </resources>

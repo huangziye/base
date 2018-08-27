@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Base</string>
     <string name="experience_now">立即体验</string>
+
+    <string name="draw_to_unlock">绘制解锁图案</string>
+    <string name="draw_to_unlock_again">请重新绘制解锁图案</string>
+    <string name="confirm_drawing_the_unlock_pattern">确认绘制解锁图案</string>
+    <string name="redraw">与上一次绘制不一致，请重新绘制</string>
 </resources>

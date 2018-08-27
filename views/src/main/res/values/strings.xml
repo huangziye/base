@@ -3,4 +3,10 @@
     <string name="error_message">网络错误,请稍后重试</string>
     <string name="empty_message">暂时还没有数据</string>
     <string name="no_more_message">没有更多了</string>
+
+    <string name="message_pattern_dot_added">Dot added to pattern</string>
+    <string name="message_pattern_started">Pattern drawing started</string>
+    <string name="message_pattern_detected">Pattern drawing completed</string>
+    <string name="message_pattern_cleared">Pattern cleared</string>
+
 </resources>
