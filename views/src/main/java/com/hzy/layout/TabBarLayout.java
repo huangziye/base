@@ -119,8 +119,8 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
         @Override
         public void onClick(View v) {
-            if (-1 != ignoreIndex) {
-                getTabbarItem(mCurrentItem).setOnClickListener(ignoreClickListener);
+            if (-1 != ignoreIndex && ignoreIndex == mCurrentItem) {
+                mItemViews.get(mCurrentItem).setOnClickListener(ignoreClickListener);
                 return;
             }
 
