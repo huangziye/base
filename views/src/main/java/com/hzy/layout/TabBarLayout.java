@@ -76,8 +76,12 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
             if (getChildAt(i) instanceof TabBarItem) {
                 TabBarItem tabBarItem = (TabBarItem) getChildAt(i);
                 mItemViews.add(tabBarItem);
-                //设置点击监听
-                tabBarItem.setOnClickListener(new MyOnClickListener(i));
+                if(-1 != ignoreIndex && i == ignoreIndex){
+                    tabBarItem.setOnClickListener(ignoreClickListener);
+                }else {
+                    //设置点击监听
+                    tabBarItem.setOnClickListener(new MyOnClickListener(i));
+                }
             } else {
                 throw new IllegalArgumentException("TabBarLayout的子View必须是BottomBarItem");
             }
@@ -120,10 +124,10 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
         @Override
         public void onClick(View v) {
-            if (-1 != ignoreIndex && ignoreIndex == currentIndex) {
+            /*if (-1 != ignoreIndex && ignoreIndex == currentIndex) {
                 mItemViews.get(currentIndex).setOnClickListener(ignoreClickListener);
                 return;
-            }
+            }*/
 
             //回调点击的位置
             if (mViewPager != null) {
