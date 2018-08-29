@@ -28,6 +28,8 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
     private List<TabBarItem> mItemViews = new ArrayList<>();
     private int mCurrentItem;//当前条目的索引
     private boolean mSmoothScroll;
+    private int ignoreIndex = -1;
+    private OnClickListener ignoreClickListener;
 
     public TabBarLayout(Context context) {
         this(context, null);
@@ -117,6 +119,11 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
         @Override
         public void onClick(View v) {
+            if (-1 != ignoreIndex) {
+                getTabbarItem(mCurrentItem).setOnClickListener(ignoreClickListener);
+                return;
+            }
+
             //回调点击的位置
             if (mViewPager != null) {
                 //有设置viewPager
@@ -260,4 +267,11 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
         this.onItemSelectedListener = onItemSelectedListener;
     }
 
+    public void setIgnoreIndex(int ignoreIndex) {
+        this.ignoreIndex = ignoreIndex;
+    }
+
+    public void setIgnoreClickListener(OnClickListener ignoreClickListener) {
+        this.ignoreClickListener = ignoreClickListener;
+    }
 }

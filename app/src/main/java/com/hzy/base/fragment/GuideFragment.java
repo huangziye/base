@@ -58,8 +58,9 @@ public class GuideFragment extends Fragment {
         mTvExperience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // todo
-                ((MainActivity) getActivity()).guideCallbck();
+                if(null != getActivity()) {
+                    ((MainActivity) getActivity()).guideCallbck();
+                }
             }
         });
 

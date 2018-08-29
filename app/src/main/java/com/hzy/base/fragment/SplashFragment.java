@@ -40,14 +40,6 @@ public class SplashFragment extends Fragment {
                 if (null != getActivity()) {
                     ((MainActivity) getActivity()).splashCallback();
                 }
-
-                /*if (true) {
-                    ((MainActivity)getActivity()).guideViewStub.inflate();
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new GuideFragment()).commit();
-                }else {
-                    getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                    getActivity().getSupportFragmentManager().beginTransaction().remove(SplashFragment.this).commit();
-                }*/
             }
         }, 3000);
 
