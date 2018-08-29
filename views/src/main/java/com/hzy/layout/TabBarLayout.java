@@ -71,6 +71,7 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
             }
         }
 
+        mItemViews.clear();
         for (int i = 0; i < mChildCount; i++) {
             if (getChildAt(i) instanceof TabBarItem) {
                 TabBarItem tabBarItem = (TabBarItem) getChildAt(i);
