@@ -12,8 +12,7 @@ public class RandomUtil {
     private static final Random RANDOM = new Random();
 
     private RandomUtil() {
-        throw new AssertionError("You can not instantiate this class. Use its static utility " +
-                "methods instead");
+        throw new AssertionError("You can not instantiate this class. Use its static utility " + "methods instead");
     }
 
     /**

@@ -10,8 +10,7 @@ import android.support.v4.content.ContextCompat;
 public class ResourceUtil {
 
     private ResourceUtil() {
-        throw new AssertionError("You can not instantiate this class. Use its static utility " +
-                "methods instead");
+        throw new AssertionError("You can not instantiate this class. Use its static utility " + "methods instead");
     }
 
     /**

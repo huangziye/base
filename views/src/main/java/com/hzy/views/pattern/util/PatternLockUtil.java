@@ -18,8 +18,7 @@ public class PatternLockUtil {
     private static final String MD5 = "MD5";
 
     private PatternLockUtil() {
-        throw new AssertionError("You can not instantiate this class. Use its static utility " +
-                "methods instead");
+        throw new AssertionError("You can not instantiate this class. Use its static utility " + "methods instead");
     }
 
     /**
@@ -29,8 +28,7 @@ public class PatternLockUtil {
      * @param pattern The actual pattern
      * @return The pattern in its string form
      */
-    public static String patternToString(PatternLockView patternLockView,
-                                         List<PatternLockView.Dot> pattern) {
+    public static String patternToString(PatternLockView patternLockView, List<PatternLockView.Dot> pattern) {
         if (pattern == null) {
             return "";
         }
@@ -50,14 +48,12 @@ public class PatternLockUtil {
      * @param string The pattern serialized with {@link #patternToString}
      * @return The actual pattern
      */
-    public static List<PatternLockView.Dot> stringToPattern(PatternLockView patternLockView,
-                                                            String string) {
+    public static List<PatternLockView.Dot> stringToPattern(PatternLockView patternLockView, String string) {
         List<PatternLockView.Dot> result = new ArrayList<>();
 
         for (int i = 0; i < string.length(); i++) {
             int number = Character.getNumericValue(string.charAt(i));
-            result.add(PatternLockView.Dot.of(number / patternLockView.getDotCount(),
-                    number % patternLockView.getDotCount()));
+            result.add(PatternLockView.Dot.of(number / patternLockView.getDotCount(), number % patternLockView.getDotCount()));
         }
         return result;
     }
@@ -69,16 +65,14 @@ public class PatternLockUtil {
      * @param pattern The actual pattern
      * @return The SHA-1 string of the pattern
      */
-    public static String patternToSha1(PatternLockView patternLockView,
-                                       List<PatternLockView.Dot> pattern) {
+    public static String patternToSha1(PatternLockView patternLockView, List<PatternLockView.Dot> pattern) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(SHA1);
             messageDigest.update(patternToString(patternLockView, pattern).getBytes(UTF8));
 
             byte[] digest = messageDigest.digest();
             BigInteger bigInteger = new BigInteger(1, digest);
-            return String.format((Locale) null,
-                    "%0" + (digest.length * 2) + "x", bigInteger).toLowerCase();
+            return String.format((Locale) null, "%0" + (digest.length * 2) + "x", bigInteger).toLowerCase();
         } catch (NoSuchAlgorithmException e) {
             return null;
         } catch (UnsupportedEncodingException e) {
@@ -93,16 +87,14 @@ public class PatternLockUtil {
      * @param pattern The actual pattern
      * @return The MD5 string of the pattern
      */
-    public static String patternToMD5(PatternLockView patternLockView,
-                                      List<PatternLockView.Dot> pattern) {
+    public static String patternToMD5(PatternLockView patternLockView, List<PatternLockView.Dot> pattern) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(MD5);
             messageDigest.update(patternToString(patternLockView, pattern).getBytes(UTF8));
 
             byte[] digest = messageDigest.digest();
             BigInteger bigInteger = new BigInteger(1, digest);
-            return String.format((Locale) null,
-                    "%0" + (digest.length * 2) + "x", bigInteger).toLowerCase();
+            return String.format((Locale) null, "%0" + (digest.length * 2) + "x", bigInteger).toLowerCase();
         } catch (NoSuchAlgorithmException e) {
             return null;
         } catch (UnsupportedEncodingException e) {
@@ -117,16 +109,13 @@ public class PatternLockUtil {
      * of the pattern's matrix. Currently it works fine with a matrix of {@code 3x3} cells.
      * Be careful when the mSize increases. </p>
      */
-    public static ArrayList<PatternLockView.Dot> generateRandomPattern(PatternLockView patternLockView,
-                                                                       int size)
-            throws IndexOutOfBoundsException {
+    public static ArrayList<PatternLockView.Dot> generateRandomPattern(PatternLockView patternLockView, int size) throws IndexOutOfBoundsException {
         if (patternLockView == null) {
             throw new IllegalArgumentException("PatternLockView can not be null.");
         }
 
         if (size <= 0 || size > patternLockView.getDotCount()) {
-            throw new IndexOutOfBoundsException("Size must be in range [1, " +
-                    patternLockView.getDotCount() + "]");
+            throw new IndexOutOfBoundsException("Size must be in range [1, " + patternLockView.getDotCount() + "]");
         }
 
         List<Integer> usedIds = new ArrayList<>();
@@ -141,9 +130,7 @@ public class PatternLockUtil {
 
             // This is the max available rows/ columns that we can reach from
             // the cell of `lastId` to the border of the matrix.
-            final int maxDistance = Math.max(
-                    Math.max(lastRow, patternLockView.getDotCount() - lastRow),
-                    Math.max(lastCol, patternLockView.getDotCount() - lastCol));
+            final int maxDistance = Math.max(Math.max(lastRow, patternLockView.getDotCount() - lastRow), Math.max(lastCol, patternLockView.getDotCount() - lastCol));
 
             lastId = -1;
 
@@ -167,12 +154,9 @@ public class PatternLockUtil {
                     switch (line) {
                         case 0: {
                             if (rowA >= 0) {
-                                randomValues = RandomUtil.randIntArray(Math.max(0, colA),
-                                        Math.min(patternLockView.getDotCount(),
-                                                colC + 1));
+                                randomValues = RandomUtil.randIntArray(Math.max(0, colA), Math.min(patternLockView.getDotCount(), colC + 1));
                                 for (int c : randomValues) {
-                                    lastId = rowA * patternLockView.getDotCount()
-                                            + c;
+                                    lastId = rowA * patternLockView.getDotCount() + c;
                                     if (usedIds.contains(lastId))
                                         lastId = -1;
                                     else
@@ -185,12 +169,9 @@ public class PatternLockUtil {
 
                         case 1: {
                             if (colC < patternLockView.getDotCount()) {
-                                randomValues = RandomUtil.randIntArray(Math.max(0, rowA + 1),
-                                        Math.min(patternLockView.getDotCount(),
-                                                rowC + 1));
+                                randomValues = RandomUtil.randIntArray(Math.max(0, rowA + 1), Math.min(patternLockView.getDotCount(), rowC + 1));
                                 for (int r : randomValues) {
-                                    lastId = r * patternLockView.getDotCount()
-                                            + colC;
+                                    lastId = r * patternLockView.getDotCount() + colC;
                                     if (usedIds.contains(lastId))
                                         lastId = -1;
                                     else
@@ -203,12 +184,9 @@ public class PatternLockUtil {
 
                         case 2: {
                             if (rowC < patternLockView.getDotCount()) {
-                                randomValues = RandomUtil.randIntArray(Math.max(0, colA),
-                                        Math.min(patternLockView.getDotCount(),
-                                                colC));
+                                randomValues = RandomUtil.randIntArray(Math.max(0, colA), Math.min(patternLockView.getDotCount(), colC));
                                 for (int c : randomValues) {
-                                    lastId = rowC * patternLockView.getDotCount()
-                                            + c;
+                                    lastId = rowC * patternLockView.getDotCount() + c;
                                     if (usedIds.contains(lastId))
                                         lastId = -1;
                                     else
@@ -221,12 +199,9 @@ public class PatternLockUtil {
 
                         case 3: {
                             if (colA >= 0) {
-                                randomValues = RandomUtil.randIntArray(Math.max(0, rowA + 1),
-                                        Math.min(patternLockView.getDotCount(),
-                                                rowC));
+                                randomValues = RandomUtil.randIntArray(Math.max(0, rowA + 1), Math.min(patternLockView.getDotCount(), rowC));
                                 for (int r : randomValues) {
-                                    lastId = r * patternLockView.getDotCount()
-                                            + colA;
+                                    lastId = r * patternLockView.getDotCount() + colA;
                                     if (usedIds.contains(lastId))
                                         lastId = -1;
                                     else
@@ -238,10 +213,12 @@ public class PatternLockUtil {
                         }
                     }
 
-                    if (lastId >= 0) break;
+                    if (lastId >= 0)
+                        break;
                 }
 
-                if (lastId >= 0) break;
+                if (lastId >= 0)
+                    break;
             }
 
             usedIds.add(lastId);

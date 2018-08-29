@@ -28,6 +28,11 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
     private List<TabBarItem> mItemViews = new ArrayList<>();
     private int mCurrentItem;//当前条目的索引
     private boolean mSmoothScroll;
+    /**
+     * 被忽略的索引，点击事件要自己实现
+     */
+    private List<Integer> ignoreIndexList = new ArrayList<>();
+    private OnClickListener ignoreClickListener;
 
     public TabBarLayout(Context context) {
         this(context, null);
@@ -76,7 +81,7 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
                 //设置点击监听
                 tabBarItem.setOnClickListener(new MyOnClickListener(i));
             } else {
-                throw new IllegalArgumentException("BottomBarLayout的子View必须是BottomBarItem");
+                throw new IllegalArgumentException("TabBarLayout的子View必须是BottomBarItem");
             }
         }
 
@@ -94,6 +99,11 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
     @Override
     public void onPageSelected(int position) {
+        if (!ignoreIndexList.isEmpty() && ignoreIndexList.contains(position)) {
+            onItemSelectedListener.onItemSelected(getTabbarItem(position), position, ignoreClickListener);
+            return;
+        }
+
         resetState();
         mItemViews.get(position).setStatus(true);
         if (onItemSelectedListener != null) {
@@ -254,9 +264,19 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
     public interface OnItemSelectedListener {
         void onItemSelected(TabBarItem tabBarItem, int previousPosition, int currentPosition);
+
+        void onItemSelected(TabBarItem tabBarItem, int currentPosition, OnClickListener ignoreClickListener);
     }
 
     public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
         this.onItemSelectedListener = onItemSelectedListener;
+    }
+
+    public void setIgnoreIndexList(List<Integer> ignoreIndexList) {
+        this.ignoreIndexList = ignoreIndexList;
+    }
+
+    public void setIgnoreClickListener(OnClickListener ignoreClickListener) {
+        this.ignoreClickListener = ignoreClickListener;
     }
 }
