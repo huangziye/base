@@ -100,7 +100,7 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
     @Override
     public void onPageSelected(int position) {
         if (!ignoreIndexList.isEmpty() && ignoreIndexList.contains(position)) {
-            onItemSelectedListener.onItemSelected(getTabbarItem(position), position, ignoreClickListener);
+            getTabbarItem(position).setOnClickListener(ignoreClickListener);
             return;
         }
 
@@ -264,8 +264,6 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
     public interface OnItemSelectedListener {
         void onItemSelected(TabBarItem tabBarItem, int previousPosition, int currentPosition);
-
-        void onItemSelected(TabBarItem tabBarItem, int currentPosition, OnClickListener ignoreClickListener);
     }
 
     public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
