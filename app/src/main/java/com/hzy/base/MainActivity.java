@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragments.add(new WechatFragment());
         fragments.add(new ContactFragment());
-//        fragments.add(new MineFragment());
+        //        fragments.add(new MineFragment());
         fragments.add(new RecyclerFragment());
 
         mViewPager.setAdapter(new TabbarAdapter(getSupportFragmentManager(), fragments));

@@ -124,11 +124,6 @@ public class TabBarLayout extends LinearLayout implements ViewPager.OnPageChange
 
         @Override
         public void onClick(View v) {
-            /*if (-1 != ignoreIndex && ignoreIndex == currentIndex) {
-                mItemViews.get(currentIndex).setOnClickListener(ignoreClickListener);
-                return;
-            }*/
-
             //回调点击的位置
             if (mViewPager != null) {
                 //有设置viewPager

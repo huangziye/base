@@ -17,18 +17,34 @@
         app:title_text_size="20dp"/>
 
 
-     <com.hzy.views.rolling.VerticalRollingTextView
-         android:id="@+id/verticalRollingTextView"
-         android:layout_width="100dp"
-         android:layout_height="30dp"
-         android:layout_gravity="center_vertical"
-         android:layout_marginTop="50dp"
-         android:background="@color/theme_color"
-         android:ellipsize="end"
-         android:maxLines="1"
-         android:textColor="@color/white"
-         android:textSize="20dp"
-         app:animInterval="1000"
-         app:itemCount="1"/>
+    <com.hzy.views.rolling.VerticalRollingTextView
+        android:id="@+id/verticalRollingTextView"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="50dp"
+        android:background="@color/theme_color"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:animInterval="1000"
+        app:itemCount="1"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"/>
+
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
