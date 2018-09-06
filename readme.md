@@ -35,13 +35,11 @@ dependencies {
 # About me
 
 
-- Email：ziye_huang@163.com
+- [简书](https://user-gold-cdn.xitu.io/2018/7/26/164d5709442f7342)
 
-- 简书：[https://user-gold-cdn.xitu.io/2018/7/26/164d5709442f7342](简书)
+- [掘金](https://juejin.im/user/5ad93382518825671547306b)
 
-- 掘金：[https://juejin.im/user/5ad93382518825671547306b](掘金)
-
-- Github：[https://github.com/huangziye](Github)
+- [Github](https://github.com/huangziye)
 
 
 # License

@@ -29,6 +29,6 @@ public class EmptyCell extends AbsStateCell {
 
     @Override
     protected View getDefaultView(Context context) {
-        return LayoutInflater.from(context).inflate(R.layout.rv_empty_layout,null);
+        return LayoutInflater.from(context).inflate(R.layout.rv_empty_layout, null);
     }
 }
