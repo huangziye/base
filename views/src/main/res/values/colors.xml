@@ -12,4 +12,6 @@
     <color name="color_circle_ring_bg">#eeeeee</color>
 
     <color name="pomegranate">#f4511e</color>
+
+    <color name="divider_line_color">#C6C6C6</color>
 </resources>
