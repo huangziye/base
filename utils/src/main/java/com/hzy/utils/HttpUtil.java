@@ -40,7 +40,7 @@ import javax.net.ssl.X509TrustManager;
  * Http 相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class HttpUtil {
+public class HttpUtil {
 
     public static final String CONTENT_TYPE_KEY = "Content-Type";
     public static final String CONTENT_TYPE_HTML_FORM = "application/x-www-form-urlencoded";

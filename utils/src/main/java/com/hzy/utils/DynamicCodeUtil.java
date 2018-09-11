@@ -12,7 +12,7 @@ import java.util.Random;
  * 支持自定义验证码字符数量,支持自定义验证码图片的大小,支持自定义需排除的特殊字符,支持自定义干扰线的数量,支持自定义验证码图文颜色
  * Created by ziye_huang on 2018/7/17.
  */
-public final class DynamicCodeUtil {
+public class DynamicCodeUtil {
 
     private static SecureRandom random = new SecureRandom();
     private static final char[] BASE62 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();

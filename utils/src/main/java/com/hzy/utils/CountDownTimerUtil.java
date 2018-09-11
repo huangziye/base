@@ -12,7 +12,7 @@ import android.widget.TextView;
  * 倒计时
  * Created by ziye_huang on 2018/7/27.
  */
-public final class CountDownTimerUtil extends CountDownTimer {
+public class CountDownTimerUtil extends CountDownTimer {
 
     private Context mContext;
     private TextView mTextView;

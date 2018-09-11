@@ -4,7 +4,7 @@ package com.hzy.utils;
  * 字节数组与字符串相互转换工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class ByteUtil {
+public class ByteUtil {
     private ByteUtil() {
         throw new AssertionError("No Instance.");
     }

@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * 验证手机号是否合法
  * Created by ziye_huang on 2018/7/17.
  */
-public final class PhoneNumberUtil {
+public class PhoneNumberUtil {
 
     private PhoneNumberUtil() {
         throw new AssertionError("No Instance.");

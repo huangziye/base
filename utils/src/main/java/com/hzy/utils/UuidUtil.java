@@ -7,7 +7,7 @@ import java.util.UUID;
  * UUID工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class UuidUtil {
+public class UuidUtil {
 
     private UuidUtil() {
         throw new AssertionError("No Instance.");

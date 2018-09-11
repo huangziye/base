@@ -14,7 +14,7 @@ import java.io.InputStream;
  * Uri 相关工具类
  * Created by ziye_huang on 2018/8/7.
  */
-public final class UriUtil {
+public class UriUtil {
 
     /**
      * 读取一个缩放后的图片，限定图片大小，避免OOM

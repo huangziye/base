@@ -30,7 +30,7 @@ import java.util.List;
  * 设备相关信息管理类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class AppUtil {
+public class AppUtil {
     private AppUtil() {
         throw new AssertionError("No Instance.");
     }

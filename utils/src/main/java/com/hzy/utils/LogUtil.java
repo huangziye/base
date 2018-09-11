@@ -6,7 +6,7 @@ import android.util.Log;
  * 日志相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class LogUtil {
+public class LogUtil {
     //设为false关闭日志
     private static boolean enable = true;
 

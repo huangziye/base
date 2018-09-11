@@ -4,7 +4,7 @@ package com.hzy.utils;
  * 版本相关辅助工具类
  * Created by ziye_huang on 2018/7/18.
  */
-public final class VersionUtil {
+public class VersionUtil {
 
     private VersionUtil() {
         throw new AssertionError("No Instance.");

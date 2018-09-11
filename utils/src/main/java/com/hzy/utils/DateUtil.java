@@ -14,7 +14,7 @@ import java.util.TimeZone;
  * 日期工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class DateUtil {
+public class DateUtil {
     private DateUtil() {
         throw new AssertionError("No Instance.");
     }

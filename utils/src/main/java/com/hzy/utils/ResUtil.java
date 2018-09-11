@@ -11,7 +11,7 @@ import android.support.annotation.StringRes;
  * 资源相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class ResUtil {
+public class ResUtil {
 
     private ResUtil() {
         throw new AssertionError("No Instance.");

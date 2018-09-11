@@ -15,7 +15,7 @@ import javax.crypto.spec.DESKeySpec;
  * DES加解密
  * Created by ziye_huang on 2018/7/17.
  */
-public final class DesUtil {
+public class DesUtil {
 
     private DesUtil() {
         throw new AssertionError("No Instance.");

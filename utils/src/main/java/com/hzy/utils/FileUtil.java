@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
  * File相关辅助类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class FileUtil {
+public class FileUtil {
 
     private FileUtil() {
         throw new AssertionError("No Instance.");

@@ -458,10 +458,14 @@ stepView.go(step, true);
 ```
 
 
+# RecyclerView实现Card Gallery效果，替代ViewPager方案。能够快速滑动并最终定位到居中位置。
+
+效果图：
+
+![效果图](https://github.com/huangziye/base/blob/master/screenshot/speedrecyclerview.gif)
 
 
-
-
+使用方式详见 `RecyclerViewCardGalleryFragment`
 
 
 

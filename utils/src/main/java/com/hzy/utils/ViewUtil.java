@@ -26,7 +26,7 @@ import android.widget.TextView;
 /**
  * Created by ziye_huang on 2018/8/31.
  */
-public final class ViewUtil {
+public class ViewUtil {
 
     private ViewUtil() {
         throw new AssertionError("No Instance.");
@@ -294,4 +294,14 @@ public final class ViewUtil {
         activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND, WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
     }
 
+    /**
+     * 根据id获取View
+     *
+     * @param view
+     * @param viewId
+     * @return
+     */
+    public static View getView(View view, @IdRes int viewId) {
+        return view.findViewById(viewId);
+    }
 }

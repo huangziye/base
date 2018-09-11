@@ -6,7 +6,7 @@ import static java.util.regex.Pattern.matches;
  * 验证邮编
  * Created by ziye_huang on 2018/7/17.
  */
-public final class PostcodeUtil {
+public class PostcodeUtil {
 
     private PostcodeUtil() {
         throw new AssertionError("No Instance.");

@@ -26,8 +26,8 @@ import android.widget.TextView;
  */
 public class BaseRecyclerViewViewHolder extends RecyclerView.ViewHolder {
 
-    private SparseArray<View> mViews = new SparseArray<>();
-    private int mLayoutId;
+    protected SparseArray<View> mViews = new SparseArray<>();
+    protected int mLayoutId;
 
     public BaseRecyclerViewViewHolder(@NonNull View itemView) {
         super(itemView);

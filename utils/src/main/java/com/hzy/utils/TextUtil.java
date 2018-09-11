@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * Created by ziye_huang on 2018/9/3.
  */
-public final class TextUtil {
+public class TextUtil {
 
     /**
      * 设置不显示下划线

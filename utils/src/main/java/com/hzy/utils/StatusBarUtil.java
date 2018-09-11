@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
  * 状态栏相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class StatusBarUtil {
+public class StatusBarUtil {
     public static final int DEFAULT_STATUS_BAR_ALPHA = 112;
     private static final int FAKE_STATUS_BAR_VIEW_ID = R.id.statusbarutil_fake_status_bar_view;
     private static final int FAKE_TRANSLUCENT_VIEW_ID = R.id.statusbarutil_translucent_view;

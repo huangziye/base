@@ -24,7 +24,7 @@ import java.lang.ref.WeakReference;
  * 吐司相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class ToastUtil {
+public class ToastUtil {
 
     private static final int COLOR_DEFAULT = 0xFEFFFFFF;
     private static final Handler HANDLER = new Handler(Looper.getMainLooper());

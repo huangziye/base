@@ -9,7 +9,7 @@ import static java.util.regex.Pattern.compile;
  * 验证邮箱
  * Created by ziye_huang on 2018/7/17.
  */
-public final class EmailUtil {
+public class EmailUtil {
 
     private EmailUtil() {
         throw new AssertionError("No Instance.");

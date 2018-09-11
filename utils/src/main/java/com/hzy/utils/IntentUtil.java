@@ -13,7 +13,7 @@ import java.util.Locale;
  * Intent相关辅助类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class IntentUtil {
+public class IntentUtil {
 
     private IntentUtil() {
         throw new AssertionError("No Instance.");

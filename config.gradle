@@ -38,6 +38,7 @@ ext {
 
             //RecyclerView
             "recyclerView"        : "com.android.support:recyclerview-v7:${version.androidSupportSdkVersion}",
+            "cardview"        : "com.android.support:cardview-v7:${version.androidSupportSdkVersion}",
     ]
 
 }

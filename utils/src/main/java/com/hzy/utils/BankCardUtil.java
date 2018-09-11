@@ -13,7 +13,7 @@ package com.hzy.utils;
  * 2、从卡号最后一位数字开始，逆向将偶数位数字，先乘以2（如果乘积为两位数，将个位十位数字相加，即将其减去9），再求和。
  * 3、将奇数位总和加上偶数位总和，结果应该可以被10整除。
  */
-public final class BankCardUtil {
+public class BankCardUtil {
 
     private BankCardUtil() {
         throw new AssertionError("No Instance.");

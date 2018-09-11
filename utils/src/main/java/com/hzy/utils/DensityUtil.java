@@ -7,7 +7,7 @@ import android.util.TypedValue;
  * 密度相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class DensityUtil {
+public class DensityUtil {
     private DensityUtil() {
         throw new AssertionError("No Instance.");
     }

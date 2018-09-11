@@ -14,7 +14,7 @@ import java.util.zip.ZipOutputStream;
  * zip打包工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class ZipUtil {
+public class ZipUtil {
 
     private ZipUtil() {
         throw new AssertionError("No Instance.");

@@ -11,7 +11,7 @@ import java.io.IOException;
  * 图片辅助类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class ImageUtil {
+public class ImageUtil {
 
     private ImageUtil() {
         throw new AssertionError("No Instance.");

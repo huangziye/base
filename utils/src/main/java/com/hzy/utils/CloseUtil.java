@@ -7,7 +7,7 @@ import java.io.IOException;
  * 关闭Closeable对象工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class CloseUtil {
+public class CloseUtil {
 
     private CloseUtil() {
         throw new AssertionError("No Instance.");

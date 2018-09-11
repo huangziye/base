@@ -6,7 +6,7 @@ import android.text.TextUtils;
  * 字符串相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
-public final class StringUtil {
+public class StringUtil {
     private StringUtil() {
         throw new AssertionError("No Instance.");
     }

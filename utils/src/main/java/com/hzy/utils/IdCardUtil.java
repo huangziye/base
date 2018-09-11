@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * Created by ziye_huang on 2018/6/4.
  */
 
-public final class IdCardUtil {
+public class IdCardUtil {
 
     /**
      * 验证身份证号码是否合法
