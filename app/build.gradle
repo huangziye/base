@@ -1,7 +1,37 @@
 apply plugin: 'com.android.application'
 
+def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmmss')
+    return formattedDate
+}
+
+def getPropInt(def key) {
+    return Integer.valueOf((String) getProperty(key))
+}
+
+def getPropString(def key) {
+    return (String) getProperty(key)
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    signingConfigs {
+        release {
+            storeFile file(getPropString("STORE_FILE"))
+            storePassword getPropString("STORE_PASSWORD")
+            keyAlias getPropString("KEY_ALIAS")
+            keyPassword getPropString("KEY_PASSWORD")
+        }
+        debug {
+            storeFile file(getPropString("STORE_FILE"))
+            storePassword getPropString("STORE_PASSWORD")
+            keyAlias getPropString("KEY_ALIAS")
+            keyPassword getPropString("KEY_PASSWORD")
+        }
+    }
+
     defaultConfig {
         applicationId "com.hzy.base"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -15,7 +45,25 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release//设置签名信息
         }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            debuggable true
+            jniDebuggable true
+        }
+    }
+}
+
+/**
+ * 设置打包apk带版本号
+ */
+android.applicationVariants.all { variant ->
+    variant.outputs.all {
+        //这里修改apk文件名
+        outputFileName = "Base-${variant.name}-v${variant.versionName}.apk"
     }
 }
 
