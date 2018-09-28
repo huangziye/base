@@ -18,6 +18,10 @@ public class CountDownTimerUtil extends CountDownTimer {
     private TextView mTextView;
     private String mFinishMsg;
     /**
+     * 倒计时前缀信息
+     */
+    private String mPrefixMsg = "";
+    /**
      * 倒计时进行中文本颜色
      */
     @ColorRes
@@ -42,6 +46,13 @@ public class CountDownTimerUtil extends CountDownTimer {
         super(millisInFuture, countDownInterval);
         this.mContext = mContext;
         this.mTextView = mTextView;
+    }
+
+    public CountDownTimerUtil(Context mContext, long millisInFuture, long countDownInterval, TextView mTextView, String prefixMsg) {
+        super(millisInFuture, countDownInterval);
+        this.mContext = mContext;
+        this.mTextView = mTextView;
+        this.mPrefixMsg = prefixMsg;
     }
 
 
@@ -127,5 +138,13 @@ public class CountDownTimerUtil extends CountDownTimer {
 
     public void setInitBgColor(int initBgColor) {
         this.mInitBgColor = initBgColor;
+    }
+
+    public TextView getTextView() {
+        return mTextView;
+    }
+
+    public void setTextView(TextView textView) {
+        mTextView = textView;
     }
 }
