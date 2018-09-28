@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.hzy.base.R;
 import com.hzy.layout.TitleBar;
+import com.hzy.layout.progress.ProgressLinearLayout;
 import com.hzy.utils.ViewUtil;
 import com.hzy.views.rolling.VerticalRollingTextView;
 import com.hzy.views.rolling.adapter.VerticalRollingTextAdapter;
@@ -28,6 +29,7 @@ public class WechatFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wechat, container, false);
         TitleBar bar = view.findViewById(R.id.titleBar);
+        final ProgressLinearLayout progressLinearLayout = view.findViewById(R.id.progressLinearLayout);
 
 
         ViewUtil.setText(view, R.id.tv, "http://www.baidu.com 或 hzy@zjca.com.cn");
@@ -48,6 +50,16 @@ public class WechatFragment extends Fragment {
             }
         });
         verticalRollingTextView.run();
+
+        progressLinearLayout.showLoading();
+        progressLinearLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                View error = getLayoutInflater().inflate(R.layout.load_failed, null);
+                progressLinearLayout.showError(error);
+            }
+        }, 6000);
+
         return view;
     }
 }
