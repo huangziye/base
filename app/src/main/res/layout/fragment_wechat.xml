@@ -47,12 +47,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <com.hzy.layout.progress.ProgressLinearLayout
-        android:id="@+id/progressLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    </com.hzy.layout.progress.ProgressLinearLayout>
+    <com.hzy.views.heartview.HeartView
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
 
 </LinearLayout>
