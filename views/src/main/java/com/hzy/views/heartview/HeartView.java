@@ -67,11 +67,10 @@ public class HeartView extends SurfaceView implements SurfaceHolder.Callback {
             b.draw(canvas);
         }
         Canvas c = surfaceHolder.lockCanvas();
-
-        c.drawBitmap(bm, 0, 0, null);
-
-        surfaceHolder.unlockCanvasAndPost(c);
-
+        if (null != c) {
+            c.drawBitmap(bm, 0, 0, null);
+            surfaceHolder.unlockCanvasAndPost(c);
+        }
     }
 
     public void reDraw() {
