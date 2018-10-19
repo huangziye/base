@@ -1,6 +1,11 @@
 package com.hzy.utils;
 
+import android.webkit.URLUtil;
+
 import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.DecimalFormat;
 
 /**
@@ -80,5 +85,19 @@ public class FileUtil {
             fileSizeString = df.format((double) fileSize / (1024 * 1024 * 1024)) + "G";
         }
         return fileSizeString;
+    }
+
+    /**
+     * 根据Url获取文件名
+     *
+     * @param strUrl
+     * @return
+     * @throws IOException
+     */
+    public static String getFileNameByUrl(String strUrl) throws IOException {
+        URL url = new URL(strUrl);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.connect();
+        return URLUtil.guessFileName(strUrl, "", conn.getContentType());
     }
 }
