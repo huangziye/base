@@ -470,7 +470,7 @@ stepView.go(step, true);
 
 
 
-
+# 增加了心形View（HeartView）
 
 
 
