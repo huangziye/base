@@ -45,9 +45,7 @@ public class HttpUtil {
     public static final String CONTENT_TYPE_KEY = "Content-Type";
     public static final String CONTENT_TYPE_HTML_FORM = "application/x-www-form-urlencoded";
     public static final String CONTENT_TYPE_JSON = "application/json";
-
     public static String CONTENT_TYPE_FILE_PREFIX = "multipart/form-data; boundary=";
-
     private static final String APPEND_CHARSET = "; charset=";
     private static final String LINE_FEED = "\r\n";
     private final String req_method;
@@ -77,12 +75,10 @@ public class HttpUtil {
      * @return 请求返回结果
      */
     public static String postFormData(String reqUrl, Map<String, String> reqHeader, Map<String, String> params, Map<String, List<File>> files, String reqCharset, String respCharset) {
-
         if (reqHeader == null) {
             reqHeader = new HashMap<>();
         }
         reqHeader.put(CONTENT_TYPE_KEY, HttpUtil.CONTENT_TYPE_FILE_PREFIX);
-
         HttpUtil httpUtil = new HttpUtil(reqUrl, "POST", reqHeader, reqCharset, respCharset);
 
         if (params != null && !params.isEmpty()) {
@@ -100,7 +96,6 @@ public class HttpUtil {
                 }
             }
         }
-
         return httpUtil.request();
     }
 
@@ -115,18 +110,15 @@ public class HttpUtil {
      * @return 请求返回结果
      */
     public static String postJson(String reqUrl, Map<String, String> reqHeader, String json, String reqCharset, String respCharset) {
-
         if (reqHeader == null) {
             reqHeader = new HashMap<>();
         }
         reqHeader.put(CONTENT_TYPE_KEY, HttpUtil.CONTENT_TYPE_JSON);
-
         HttpUtil httpUtil = new HttpUtil(reqUrl, "POST", reqHeader, reqCharset, respCharset);
 
         if (json != null && !json.isEmpty()) {
             httpUtil.addRaw(json);
         }
-
         return httpUtil.request();
     }
 
@@ -141,18 +133,15 @@ public class HttpUtil {
      * @return 请求返回结果
      */
     public static String postHtmlForm(String reqUrl, Map<String, String> reqHeader, Map<String, Object> params, String reqCharset, String respCharset) {
-
         if (reqHeader == null) {
             reqHeader = new HashMap<>();
         }
         reqHeader.put(CONTENT_TYPE_KEY, HttpUtil.CONTENT_TYPE_HTML_FORM);
-
         HttpUtil httpUtil = new HttpUtil(reqUrl, "POST", reqHeader, reqCharset, respCharset);
 
         if (params != null && !params.isEmpty()) {
             httpUtil.addXWwwFormUrlencoded(params);
         }
-
         return httpUtil.request();
     }
 
@@ -167,9 +156,7 @@ public class HttpUtil {
      * @return 请求返回结果
      */
     public static String get(String reqUrl, Map<String, String> reqHeader, Map<String, Object> params, String reqCharset, String respCharset) {
-
         HttpUtil httpUtil = constructorForGet(reqUrl, reqHeader, params, reqCharset, respCharset);
-
         return httpUtil.request();
     }
 
@@ -185,11 +172,9 @@ public class HttpUtil {
      * @return 请求返回结果
      */
     public static String getFile(String reqUrl, Map<String, String> reqHeader, Map<String, Object> params, String reqCharset, String respCharset, String saveDir) {
-
         HttpUtil httpUtil = constructorForGet(reqUrl, reqHeader, params, reqCharset, respCharset);
         httpUtil.reqUrl = reqUrl;
         httpUtil.saveDir = saveDir;
-
         return httpUtil.request();
     }
 
@@ -204,7 +189,6 @@ public class HttpUtil {
      * @return HttpUtil 实例
      */
     public static HttpUtil constructorForGet(String reqUrl, Map<String, String> reqHeader, Map<String, Object> params, String reqCharset, String respCharset) {
-
         if (params != null && !params.isEmpty()) {
             // 若存在请求参数，获取请求参数字符串
             String query = mapToQueryString(params);
@@ -218,7 +202,6 @@ public class HttpUtil {
                 reqUrl = reqUrl + "?" + query;
             }
         }
-
         return new HttpUtil(reqUrl, "GET", reqHeader, reqCharset, respCharset);
     }
 
@@ -306,7 +289,6 @@ public class HttpUtil {
      * @param kvMap 键值对
      */
     public void addXWwwFormUrlencoded(Map<String, Object> kvMap) {
-
         if ("GET".equals(req_method)) {
             throw new RuntimeException("The addXWwwFormUrlencoded not support GET method.");
         }
@@ -323,7 +305,6 @@ public class HttpUtil {
      * @param val 字符串值，比如：JSON 字符串
      */
     public void addRaw(String val) {
-
         if ("GET".equals(req_method)) {
             throw new RuntimeException("The addRaw not support GET method.");
         }
@@ -341,7 +322,6 @@ public class HttpUtil {
      * @param val  属性值
      */
     public void addFormDataText(String name, String val) {
-
         if ("GET".equals(req_method)) {
             throw new RuntimeException("The addFormDataText not support GET method.");
         }
@@ -352,7 +332,6 @@ public class HttpUtil {
         prtWrite.append(LINE_FEED);
         prtWrite.append(val).append(LINE_FEED);
         prtWrite.flush();
-
         isFormData = true;
     }
 
@@ -366,7 +345,6 @@ public class HttpUtil {
      */
     @TargetApi(19)
     public void addFormDataFile(String fieldName, File uploadFile) {
-
         if ("GET".equals(req_method)) {
             throw new RuntimeException("The addFormDataFile not support GET method.");
         }
@@ -406,7 +384,6 @@ public class HttpUtil {
      */
     @TargetApi(19)
     public String request() {
-
         if (isFormData) {
             // 若是文件上传，则填补下边界
             prtWrite.append(LINE_FEED).flush();
@@ -482,7 +459,6 @@ public class HttpUtil {
      */
     @TargetApi(19)
     private String download(InputStream inStm) throws IOException {
-
         String fileName = "";
         String disposition = httpConn.getHeaderField("Content-Disposition");
         String contentType = httpConn.getContentType();
@@ -515,7 +491,6 @@ public class HttpUtil {
                 bufOutStm.write(ch);
             }
         }
-
         return "To download the files to: " + saveFilePath;
     }
 
@@ -540,7 +515,6 @@ public class HttpUtil {
             throw new RuntimeException(e);
 
         }
-
         return strBuild.toString();
     }
 
@@ -551,16 +525,13 @@ public class HttpUtil {
      * @return params
      */
     private static Map<String, Object> getQueryMap(String query) {
-
         String[] params = query.split("&");
-
         Map<String, Object> map = new HashMap<>();
 
         for (String item : params) {
             String[] kv = item.split("=");
             map.put(kv[0], kv[1]);
         }
-
         return map;
     }
 
@@ -587,7 +558,6 @@ public class HttpUtil {
                 }
             }
         }
-
         return stringJoiner.toString();
     }
 
@@ -599,7 +569,6 @@ public class HttpUtil {
      */
     @TargetApi(24)
     private static String mapToQueryString(Map<String, Object> kvMap) {
-
         // 构造请求参数字符串
         StringJoiner stringJoiner = new StringJoiner("&");
 
@@ -607,10 +576,8 @@ public class HttpUtil {
             for (Map.Entry<String, Object> entry : kvMap.entrySet()) {
                 // 以 HTML 表单字符处理参数，以指定编码格式正进传输
                 stringJoiner.add(entry.getKey() + "=" + entry.getValue());
-
             }
         }
-
         return stringJoiner.toString();
     }
 }
