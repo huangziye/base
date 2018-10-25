@@ -2,11 +2,21 @@ package com.hzy.utils;
 
 import android.text.TextUtils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 字符串相关工具类
  * Created by ziye_huang on 2018/7/17.
  */
 public class StringUtil {
+    /**
+     * 匹配中文
+     */
+    private static String zhPattern = "[\\u4e00-\\u9fa5]";
+
     private StringUtil() {
         throw new AssertionError("No Instance.");
     }
@@ -31,6 +41,25 @@ public class StringUtil {
             return message;
         }
         return message.replace(message.substring(beginIndex, endIndex), replaceSymbol);
+    }
+
+    /**
+     * 对字符串中的中文进行URL编码
+     *
+     * @param cnString 被替换的字符串
+     * @param charset  字符集
+     * @return
+     * @throws UnsupportedEncodingException 不支持的字符集
+     */
+    public static String encode(String cnString, String charset) throws UnsupportedEncodingException {
+        Pattern p = Pattern.compile(zhPattern);
+        Matcher m = p.matcher(cnString);
+        StringBuffer sb = new StringBuffer();
+        while (m.find()) {
+            m.appendReplacement(sb, URLEncoder.encode(m.group(0), charset));
+        }
+        m.appendTail(sb);
+        return sb.toString();
     }
 
 }

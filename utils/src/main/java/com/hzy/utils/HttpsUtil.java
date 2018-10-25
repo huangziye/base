@@ -48,6 +48,7 @@ public class HttpsUtil {
         try {
             TrustManager[] trustManagers = prepareTrustManager(certificates);
             KeyManager[] keyManagers = prepareKeyManager(bksFile, password);
+            //TLS1.0与SSL3.0基本上没有太大的差别，可粗略理解为TLS是SSL的继承者，但它们使用的是相同的SSLContext
             SSLContext sslContext = SSLContext.getInstance("TLS");
             TrustManager trustManager;
             if (null != trustManagers) {
