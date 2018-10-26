@@ -76,4 +76,102 @@ public class StringUtil {
         return Uri.encode(url, "-![.:/,%?&=]");
     }
 
+    /**
+     * 转换为%E4%BD%A0形式
+     *
+     * @param s
+     * @return
+     */
+    public static String toUtf8String(String s) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= 0 && c <= 255) {
+                sb.append(c);
+            } else {
+                byte[] b;
+                try {
+                    b = String.valueOf(c).getBytes("utf-8");
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                    b = new byte[0];
+                }
+                for (int j = 0; j < b.length; j++) {
+                    int k = b[j];
+                    if (k < 0) {
+                        k += 256;
+                    }
+                    sb.append("%" + Integer.toHexString(k).toUpperCase());
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+
+    /**
+     * 将%E4%BD%A0转换为汉字
+     *
+     * @param s
+     * @return
+     */
+    public static String unescape(String s) {
+        StringBuffer sbuf = new StringBuffer();
+        int l = s.length();
+        int ch = -1;
+        int b, sumb = 0;
+        for (int i = 0, more = -1; i < l; i++) {
+            /* Get next byte b from URL segment s */
+            switch (ch = s.charAt(i)) {
+                case '%':
+                    ch = s.charAt(++i);
+                    int hb = (Character.isDigit((char) ch) ? ch - '0' : 10 + Character.toLowerCase((char) ch) - 'a') & 0xF;
+                    ch = s.charAt(++i);
+                    int lb = (Character.isDigit((char) ch) ? ch - '0' : 10 + Character.toLowerCase((char) ch) - 'a') & 0xF;
+                    b = (hb << 4) | lb;
+                    break;
+                case '+':
+                    b = ' ';
+                    break;
+                default:
+                    b = ch;
+            }
+            /* Decode byte b as UTF-8, sumb collects incomplete chars */
+            //10xxxxxx (continuation byte)
+            if ((b & 0xc0) == 0x80) {
+                // Add 6 bits to sumb
+                sumb = (sumb << 6) | (b & 0x3f);
+                if (--more == 0) {
+                    // Add char to sbuf
+                    sbuf.append((char) sumb);
+                }
+            } else if ((b & 0x80) == 0x00) { // 0xxxxxxx (yields 7 bits)
+                // Store in sbuf
+                sbuf.append((char) b);
+            } else if ((b & 0xe0) == 0xc0) { // 110xxxxx (yields 5 bits)
+                sumb = b & 0x1f;
+                // Expect 1 more byte
+                more = 1;
+            } else if ((b & 0xf0) == 0xe0) { // 1110xxxx (yields 4 bits)
+                sumb = b & 0x0f;
+                // Expect 2 more bytes
+                more = 2;
+            } else if ((b & 0xf8) == 0xf0) { // 11110xxx (yields 3 bits)
+                sumb = b & 0x07;
+                // Expect 3 more bytes
+                more = 3;
+            } else if ((b & 0xfc) == 0xf8) { // 111110xx (yields 2 bits)
+                sumb = b & 0x03;
+                // Expect 4 more bytes
+                more = 4;
+            } else /*if ((b & 0xfe) == 0xfc)*/ { // 1111110x (yields 1 bit)
+                sumb = b & 0x01;
+                // Expect 5 more bytes
+                more = 5;
+            }
+            /* We don't test if the UTF-8 encoding is well-formed */
+        }
+        return sbuf.toString();
+    }
+
 }
