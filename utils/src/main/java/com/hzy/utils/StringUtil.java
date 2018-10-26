@@ -1,5 +1,6 @@
 package com.hzy.utils;
 
+import android.net.Uri;
 import android.text.TextUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -60,6 +61,18 @@ public class StringUtil {
         }
         m.appendTail(sb);
         return sb.toString();
+    }
+
+    /**
+     * 使用UTF-8模式将给定字符串中的字符编码为'%'-转义的八位元组。
+     * 叶子字母(“a - z”、“a - z”),数字(0 - 9)和无限制的字符(“_ - ! ~()*”)完好无损。
+     * 对所有其他字符进行编码，允许参数中指定的字符除外。
+     *
+     * @param url
+     * @return
+     */
+    public static String encodeUrl(String url) {
+        return Uri.encode(url, "-![.:/,%?&=]");
     }
 
 }
