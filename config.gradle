@@ -11,6 +11,9 @@ ext {
             androidSupportSdkVersion: "28.+",
             butterknifeSdkVersion   : "8.8.1",
             glideSdkVersion         : "4.7.1",
+            fastJsonVersion         : "1.2.51",
+            retrofitVersion         : "2.4.0",
+            eventbusVersion         : "3.1.1",
     ]
     dependencies = [
             //base
@@ -26,7 +29,14 @@ ext {
             "espresso-core"       : "com.android.support.test.espresso:espresso-core:3.0.2",
 
             //eventbus
-            "eventbus"            : "org.greenrobot:eventbus:3.1.1",
+            "eventbus"            : "org.greenrobot:eventbus:${version.eventbusVersion}",
+
+            //fastjson
+            "fastjson"            : "com.alibaba:fastjson:${version.fastJsonVersion}",
+
+            //retrofit
+            "retrofit"            : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
+            "retrofit-adapter"    : "com.squareup.retrofit2:adapter-rxjava2:${version.retrofitVersion}",
 
             //butterknife
             "butterknife"         : "com.jakewharton:butterknife:${version.butterknifeSdkVersion}",
@@ -38,7 +48,7 @@ ext {
 
             //RecyclerView
             "recyclerView"        : "com.android.support:recyclerview-v7:${version.androidSupportSdkVersion}",
-            "cardview"        : "com.android.support:cardview-v7:${version.androidSupportSdkVersion}",
+            "cardview"            : "com.android.support:cardview-v7:${version.androidSupportSdkVersion}",
     ]
 
 }

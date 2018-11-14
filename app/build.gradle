@@ -17,6 +17,11 @@ def getPropString(def key) {
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
     signingConfigs {
         release {
             storeFile file(getPropString("STORE_FILE"))
