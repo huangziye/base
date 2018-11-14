@@ -5,6 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.DrawableRes;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 /**
  * Created by ziye_huang on 2018/9/10.
  */
@@ -75,5 +80,27 @@ public class BitmapUtil {
             inSampleSize = Math.max(widthRadio, heightRadio);
         }
         return inSampleSize;
+    }
+
+    /**
+     * 保存bitmap
+     *
+     * @param bitmap
+     * @param filePath
+     * @return
+     */
+    public static boolean saveBitmap(Bitmap bitmap, String filePath) {
+        File file = new File(filePath);
+        try {
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            bos.flush();
+            bos.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }
