@@ -1,5 +1,6 @@
 package com.hzy.utils;
 
+import android.net.Uri;
 import android.webkit.URLUtil;
 
 import java.io.File;
@@ -99,5 +100,15 @@ public class FileUtil {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.connect();
         return URLUtil.guessFileName(strUrl, "", conn.getContentType());
+    }
+
+    /**
+     * 从urlString路径中获取文件名
+     *
+     * @param urlString
+     * @return
+     */
+    public static String getFileNameByUrlPath(String urlString) {
+        return Uri.parse(urlString).getLastPathSegment();
     }
 }
