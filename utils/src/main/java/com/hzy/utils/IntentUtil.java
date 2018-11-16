@@ -294,4 +294,15 @@ public class IntentUtil {
         List<ResolveInfo> activities = packageManager.queryIntentActivities(intent, 0);
         return activities.size() > 0;
     }
+
+    /**
+     * 显示分享App的选择界面
+     *
+     * @param context
+     * @param intent
+     * @param title   标题
+     */
+    public static void shareSelector(Context context, Intent intent, String title) {
+        context.startActivity(Intent.createChooser(intent, title));
+    }
 }
