@@ -2,11 +2,14 @@ package com.hzy.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.FileProvider;
 
 import java.io.File;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -275,5 +278,20 @@ public class IntentUtil {
         Uri uri = getUri(context, intent, new File(param));
         intent.setDataAndType(uri, "application/pdf");
         return intent;
+    }
+
+    /**
+     * 判断是否有app接收这个intent
+     * <p>
+     * 没有任何一个app会去接收这个intent，则app会crash。
+     *
+     * @param context
+     * @param intent
+     * @return true 有app接收这个intent，否则没有。
+     */
+    public static boolean intentSafe(Context context, Intent intent) {
+        PackageManager packageManager = context.getPackageManager();
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(intent, 0);
+        return activities.size() > 0;
     }
 }
