@@ -59,4 +59,93 @@ public class ResUtil {
         return context.getResources().getDimensionPixelSize(dimen);
     }
 
+    /********************************************** 在将自己写的工具打成.jar包的时候,有时候会需要引用到res中的资源,这时候不能将资源一起打包,只能通过反射机制动态的获取资源. ****************************************************/
+
+    /**
+     * 获取layout的ID
+     *
+     * @param context
+     * @param resourceName 资源ID名
+     * @return
+     */
+    public static int getLayoutId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "layout");
+    }
+
+    /**
+     * 获取资源字符串的ID
+     *
+     * @param context
+     * @param resourceName 资源名称
+     * @return
+     */
+    public static int getStringId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "string");
+    }
+
+    /**
+     * 获取drawable的ID
+     *
+     * @param context
+     * @param resourceName 资源名称
+     * @return
+     */
+    public static int getDrawableId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "drawable");
+    }
+
+    /**
+     * 获取style的ID
+     *
+     * @param context
+     * @param resourceName 资源名称
+     * @return
+     */
+    public static int getStyleId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "style");
+    }
+
+    /**
+     * 获取id
+     *
+     * @param context
+     * @param resourceName 资源名称
+     * @return
+     */
+    public static int getId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "id");
+    }
+
+    /**
+     * 获取color的ID
+     *
+     * @param context
+     * @param resourceName 资源名称
+     * @return
+     */
+    public static int getColorId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "color");
+    }
+
+    /**
+     * 获取array的ID
+     *
+     * @param context
+     * @param resourceName 资源名称
+     * @return
+     */
+    public static int getArrayId(Context context, String resourceName) {
+        return getResourceId(context, resourceName, "array");
+    }
+
+    /**
+     * @param context
+     * @param resourceName 资源ID名
+     * @param defType      资源属性的类型
+     * @return
+     */
+    public static int getResourceId(Context context, String resourceName, String defType) {
+        return context.getResources().getIdentifier(resourceName, defType, context.getPackageName());
+    }
+
 }
