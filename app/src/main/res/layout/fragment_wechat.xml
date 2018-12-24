@@ -49,6 +49,7 @@
 
     <com.hzy.views.heartview.HeartView
         android:layout_width="300dp"
-        android:layout_height="300dp"/>
+        android:layout_height="300dp"
+        android:visibility="gone"/>
 
 </LinearLayout>

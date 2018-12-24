@@ -90,7 +90,7 @@ public class RecyclerViewCardGalleryFragment extends Fragment {
         if (mLastPos == mSpeedCardScaleHelper.getCurrentItemPos())
             return;
         mLastPos = mSpeedCardScaleHelper.getCurrentItemPos();
-        final int resId = mList.get(mSpeedCardScaleHelper.getCurrentItemPos());
+        final int resId = mList.get(mLastPos);
         mBlurView.removeCallbacks(mBlurRunnable);
         mBlurRunnable = new Runnable() {
             @Override

@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.hzy.base.adapter.TabbarAdapter;
 import com.hzy.base.fragment.ContactFragment;
 import com.hzy.base.fragment.GuideFragment;
-import com.hzy.base.fragment.RecyclerViewCardGalleryFragment;
+import com.hzy.base.fragment.MineFragment;
 import com.hzy.base.fragment.SplashFragment;
 import com.hzy.base.fragment.WechatFragment;
 import com.hzy.cache.ACache;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        contentViewStub = (ViewStub) findViewById(R.id.content_viewstub);
+        contentViewStub = findViewById(R.id.content_viewstub);
 
         //首先加载并显示splash页面
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, splashFragment = new SplashFragment()).commit();
@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         fragments.add(new WechatFragment());
         fragments.add(new ContactFragment());
-//        fragments.add(new MineFragment());
-        fragments.add(new RecyclerViewCardGalleryFragment());
+        fragments.add(new MineFragment());
+//        fragments.add(new RecyclerViewCardGalleryFragment());
 
         mViewPager.setAdapter(new TabbarAdapter(getSupportFragmentManager(), fragments));
         mTabBarLayout.setViewPager(mViewPager);
